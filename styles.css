@@ -381,6 +381,45 @@ td.yes { color: var(--brand-2); font-weight: 600; }
 td.no { color: #c05050; }
 td.partial { color: var(--warn); }
 
+/* ---------- Check list (benefit bullets) ---------- */
+.check-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 40px;
+  max-width: 920px;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15.5px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+.check-list li::before {
+  content: "✓";
+  color: var(--brand);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check-list.check-list-lg li { font-size: 16px; }
+
+/* ---------- Steps (how it works) ---------- */
+.steps { display: flex; flex-direction: column; max-width: 800px; }
+.step { display: flex; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.step:first-child { padding-top: 0; }
+.step:last-child { border-bottom: none; padding-bottom: 0; }
+.step-num {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: white; font-weight: 800; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.step-body h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -0.01em; }
+.step-body p { font-size: 14.5px; color: var(--text-soft); line-height: 1.6; }
+
 /* ---------- FAQ ---------- */
 .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 780px; }
 .faq-list details {
@@ -462,4 +501,6 @@ td.partial { color: var(--warn); }
   .feature-grid { grid-template-columns: 1fr; }
   .hero-proof { gap: 22px; }
   .section { padding: 64px 0; }
+  .check-list { grid-template-columns: 1fr; }
+  .step { gap: 16px; }
 }

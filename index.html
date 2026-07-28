@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>m3vo — The transparent WhatsApp inbox</title>
+<meta name="description" content="m3vo is a shared WhatsApp inbox with automation and AI built in from day one — priced per seat, not per contact, with every fee shown up front." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="noise"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      m3vo
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-ghost">See pricing</a>
+      <a href="#get-started" class="btn btn-primary">Start free</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#product">Product</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#compare">Compare</a>
+    <a href="#faq">FAQ</a>
+    <a href="#get-started" class="btn btn-primary">Start free</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span>WhatsApp Business Platform, without the markup</p>
+        <h1>The WhatsApp inbox that shows its receipts.</h1>
+        <p class="lede">
+          Every vendor in this category licenses the same Meta Cloud API and stacks a subscription on top.
+          m3vo gives you a shared inbox, no-code automation, and an AI copilot in one seat‑priced plan —
+          with Meta's per‑message pass‑through cost broken out, not buried.
+        </p>
+        <div class="hero-actions">
+          <a href="#get-started" class="btn btn-primary btn-lg">Start free — no card required</a>
+          <a href="#compare" class="btn btn-outline btn-lg">See the price breakdown</a>
+        </div>
+        <div class="hero-proof">
+          <div><strong>$19</strong><span>entry tier, automation included</span></div>
+          <div><strong>0</strong><span>"monthly active contact" tax</span></div>
+          <div><strong>100%</strong><span>of BSP fees shown, not marked up in the dark</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <span></span><span></span><span></span>
+            <p>Shared Inbox — #general</p>
+          </div>
+          <div class="mock-body">
+            <div class="mock-row incoming">
+              <div class="mock-avatar">JT</div>
+              <div class="mock-bubble">Hey — do you ship to Malaysia?</div>
+            </div>
+            <div class="mock-row ai">
+              <div class="mock-avatar ai-avatar">AI</div>
+              <div class="mock-bubble mock-ai">Suggested reply: "Yes! 3–5 business days, free over $50." <span class="mock-tag">92% confidence</span></div>
+            </div>
+            <div class="mock-row outgoing">
+              <div class="mock-bubble mock-out">Yes! 3–5 business days, free over $50 ✅</div>
+            </div>
+            <div class="mock-automation">
+              <span class="pulse"></span>
+              Automation: tagged <b>Lead → Shipping question</b>, routed to Sales
+            </div>
+          </div>
+        </div>
+        <div class="mock-cost-card">
+          <p class="mock-cost-title">This conversation cost</p>
+          <div class="mock-cost-row"><span>m3vo subscription</span><span>included</span></div>
+          <div class="mock-cost-row"><span>Meta service message</span><span>$0.00</span></div>
+          <div class="mock-cost-row"><span>AI reply drafted</span><span>$0.02</span></div>
+          <div class="mock-cost-row total"><span>Total pass-through</span><span>$0.02</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIC BAR -->
+  <section class="strip">
+    <div class="container strip-inner">
+      <p>Built on the same Meta WhatsApp Cloud API as respond.io, Wati, SleekFlow, Trengo, Kommo, Interakt, AiSensy and Gallabox — routed through an official Business Solution Provider.</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem" id="problem">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span>The real cost stack</p>
+        <h2>You're not paying for WhatsApp access. You're paying for the wrapper around it.</h2>
+        <p class="section-sub">
+          Meta charges the same per-message rate to every vendor in this category — roughly $0.004–$0.025
+          depending on message type. The inbox, the automation builder, and the AI layer are where 90%+ of
+          your subscription actually goes. That layer shouldn't cost $79–$599 a month.
+        </p>
+      </div>
+
+      <div class="cost-stack">
+        <div class="cost-layer meta">
+          <div class="cost-layer-label">
+            <span>Meta Cloud API</span>
+            <span class="cost-layer-value">Pass-through, ~$0.004–$0.025/msg</span>
+          </div>
+          <div class="cost-layer-bar" style="--w: 18%"></div>
+        </div>
+        <div class="cost-layer bsp">
+          <div class="cost-layer-label">
+            <span>BSP connectivity fee</span>
+            <span class="cost-layer-value">$0–49/mo base</span>
+          </div>
+          <div class="cost-layer-bar" style="--w: 12%"></div>
+        </div>
+        <div class="cost-layer wrapper">
+          <div class="cost-layer-label">
+            <span>Inbox + automation + AI markup</span>
+            <span class="cost-layer-value">Where competitors charge $79–$599/mo</span>
+          </div>
+          <div class="cost-layer-bar" style="--w: 70%"></div>
+        </div>
+      </div>
+      <p class="cost-note">m3vo's plans start at $19/mo for that last layer — with automation and AI included, not gated behind a $129+ tier.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="product">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span>Product</p>
+        <h2>Everything the $79+/mo tier gives you elsewhere — included from $19.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon icon-inbox"></div>
+          <h3>Shared team inbox</h3>
+          <p>One queue for WhatsApp, Instagram, and web chat. Assignment, canned replies, contact profiles, and internal notes — no per-seat feature gate.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-flow"></div>
+          <h3>No-code automation</h3>
+          <p>Build routing, business-hours replies, and drip sequences visually. Trigger on keywords, tags, or inactivity — included on every plan, including Starter.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-ai"></div>
+          <h3>AI copilot</h3>
+          <p>Drafts replies, qualifies leads, and summarizes long threads before a human ever opens the conversation. Billed transparently at $0.01–$0.05 per conversation.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-crm"></div>
+          <h3>Lightweight CRM</h3>
+          <p>A pipeline view and contact profiles live next to the inbox — enough to track a deal without forcing you into a second tool.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-bill"></div>
+          <h3>Usage-based billing, shown to you too</h3>
+          <p>The same cost breakdown your customers see is the one you get: subscription, BSP fee, and Meta pass-through, itemized.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-channel"></div>
+          <h3>Multi-channel from Scale</h3>
+          <p>WhatsApp first, then Instagram and web chat on the same contact timeline — no separate tool, no separate bill.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span>Pricing</p>
+        <h2>Priced per seat. Never per contact.</h2>
+        <p class="section-sub">Meta's per-message fee is passed through at cost, itemized on every invoice — it is never marked up.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="price"><span>$19</span>/mo</p>
+          <p class="price-sub">1–2 seats</p>
+          <ul>
+            <li>Shared inbox (WhatsApp)</li>
+            <li>Contact profiles &amp; canned replies</li>
+            <li>Basic automation rules</li>
+            <li>No contact / MAC tax</li>
+          </ul>
+          <a href="#get-started" class="btn btn-outline btn-block">Start free</a>
+        </div>
+
+        <div class="price-card featured">
+          <p class="price-badge">Most popular</p>
+          <h3>Growth</h3>
+          <p class="price"><span>$49</span>/mo</p>
+          <p class="price-sub">Up to 5 seats</p>
+          <ul>
+            <li>Everything in Starter</li>
+            <li>No-code automation flow builder</li>
+            <li>AI copilot included</li>
+            <li>Lightweight CRM / pipeline view</li>
+          </ul>
+          <a href="#get-started" class="btn btn-primary btn-block">Start free</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Scale</h3>
+          <p class="price"><span>$99</span>/mo</p>
+          <p class="price-sub">Generous seat cap</p>
+          <ul>
+            <li>Everything in Growth</li>
+            <li>Multi-channel: WhatsApp + Instagram + web</li>
+            <li>Priority support</li>
+            <li>Usage-based billing dashboard</li>
+          </ul>
+          <a href="#get-started" class="btn btn-outline btn-block">Start free</a>
+        </div>
+      </div>
+      <p class="pricing-footnote">Plans exclude Meta/BSP messaging fees, which are itemized separately at cost. Illustrative pricing — confirm current rates before publishing.</p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section compare" id="compare">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span>Compare</p>
+        <h2>The category, side by side.</h2>
+        <p class="section-sub">List pricing as of mid‑2026. All vendors also pass through Meta's per-message fee on top of the figures below.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Entry tier</th>
+              <th>Automation at entry?</th>
+              <th>AI at entry?</th>
+              <th>Metering basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td><span class="brand-chip">m3vo</span></td>
+              <td>$19/mo</td>
+              <td class="yes">Included</td>
+              <td class="yes">Included (Growth+)</td>
+              <td>Per seat</td>
+            </tr>
+            <tr>
+              <td>respond.io</td>
+              <td>$79/mo</td>
+              <td class="no">None on Starter</td>
+              <td class="no">No</td>
+              <td>Monthly active contacts + seats</td>
+            </tr>
+            <tr>
+              <td>Wati</td>
+              <td>$59/mo</td>
+              <td class="partial">Limited</td>
+              <td class="no">No</td>
+              <td>Subscription + per-message + add-ons</td>
+            </tr>
+            <tr>
+              <td>SleekFlow</td>
+              <td>Free tier</td>
+              <td class="partial">Limited</td>
+              <td class="partial">Add-on</td>
+              <td>Contacts/users + AI add-ons</td>
+            </tr>
+            <tr>
+              <td>Kommo</td>
+              <td>$15/user</td>
+              <td class="partial">Basic CRM automation</td>
+              <td class="no">No</td>
+              <td>Per user + active-lead cap</td>
+            </tr>
+            <tr>
+              <td>Trengo</td>
+              <td>€299/mo</td>
+              <td class="yes">Included</td>
+              <td class="partial">€0.25–0.30 surcharge/convo</td>
+              <td>Conversations/year + AI surcharge</td>
+            </tr>
+            <tr>
+              <td>Interakt</td>
+              <td>$12/mo</td>
+              <td class="no">No</td>
+              <td class="no">No</td>
+              <td>Subscription + per-message</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot"></span>FAQ</p>
+        <h2>Common questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Do I still pay Meta directly?</summary>
+          <p>No — m3vo routes your messages through an official Business Solution Provider, so you get one invoice. We itemize the Meta pass-through cost on it instead of folding it into an unmarked "platform fee."</p>
+        </details>
+        <details>
+          <summary>What happens after October 1, 2026, when service messages start being charged?</summary>
+          <p>Meta's per-message rate for service and utility replies inside the 24-hour window becomes chargeable on that date across the entire category. m3vo passes that fee through at cost, same as today — it will not be absorbed into a higher subscription price without being shown to you first.</p>
+        </details>
+        <details>
+          <summary>Is this built on an unofficial WhatsApp library?</summary>
+          <p>No. m3vo connects exclusively through an official BSP on the WhatsApp Cloud API. Unofficial libraries carry real account-ban risk, which isn't acceptable for a product businesses depend on.</p>
+        </details>
+        <details>
+          <summary>Can I import my contacts and history from another platform?</summary>
+          <p>Yes — CSV import today, with direct migration tooling for the platforms above on the roadmap.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="get-started">
+    <div class="container cta-inner">
+      <h2>Stop paying a contact tax for a commodity connection.</h2>
+      <p>Start free. No card required. See the real cost of every conversation from day one.</p>
+      <a href="mailto:hello@m3vo.io" class="btn btn-primary btn-lg">Get started — hello@m3vo.io</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>m3vo</span>
+    </div>
+    <p>© 2026 m3vo. WhatsApp is a trademark of Meta Platforms, Inc. m3vo is an independent product built on the official WhatsApp Business Platform via a licensed BSP.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

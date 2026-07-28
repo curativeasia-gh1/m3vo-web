@@ -23,6 +23,20 @@ No framework, no build step — open `index.html` directly or serve the folder w
 - Pricing figures ($19 / $49 / $99) and the competitor comparison table are illustrative, pulled from the July 2026 competitive research doc — confirm current numbers before this goes live.
 - All `https://m3vo.com/...` URLs (canonical, OG, sitemap, JSON-LD, robots.txt) assume the site is deployed at the root of that domain — update them if the deploy target changes.
 
+## Cache-busting on every CSS/JS edit
+
+`index.html` and `about.html` load styles and script with a version query string —
+`styles.css?v=20260728c` / `script.js?v=20260728c` — instead of a bare filename. The
+production host serves `styles.css` with `Cache-Control: public, max-age=14400`, so
+without a changing query string, browsers (and any CDN) that already cached an older
+copy can keep serving it for up to 4 hours after a deploy, even though the origin file
+is current. This caused a real bug: a "How it works" section shipped with broken
+layout because a visitor's browser had the pre-update `styles.css` cached.
+
+**Whenever `styles.css` or `script.js` changes, bump the `?v=` value on both files in
+both `index.html` and `about.html`** (e.g. an incrementing suffix or the date) so every
+deploy forces a fresh fetch.
+
 ## Deploy to this repo
 
 ```

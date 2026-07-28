@@ -381,6 +381,30 @@ td.yes { color: var(--brand-2); font-weight: 600; }
 td.no { color: #c05050; }
 td.partial { color: var(--warn); }
 
+.status-pill {
+  display: inline-flex; align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12.5px; font-weight: 700;
+  white-space: nowrap;
+}
+.status-pill.yes { background: rgba(22, 160, 106, 0.12); color: var(--brand-2); }
+.status-pill.no { background: rgba(192, 80, 80, 0.12); color: #c05050; }
+.status-pill.partial { background: rgba(240, 180, 41, 0.18); color: #8a6a10; }
+
+tr.highlight td { background: rgba(22, 160, 106, 0.06); font-weight: 600; border-top: 1px solid rgba(22,160,106,0.35); border-bottom: 1px solid rgba(22,160,106,0.35); }
+tr.highlight td:first-child { border-left: 3px solid var(--brand); padding-left: 15px; }
+.this-product-badge {
+  display: inline-flex; align-items: center;
+  margin-left: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(22, 160, 106, 0.14);
+  color: var(--brand-2);
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.03em; text-transform: uppercase;
+}
+
 /* ---------- Check list (benefit bullets) ---------- */
 .check-list {
   display: grid;
@@ -405,6 +429,41 @@ td.partial { color: var(--warn); }
 }
 .check-list.check-list-lg li { font-size: 16px; }
 
+/* ---------- Icon squares (shared by icon-grid + step cards) ---------- */
+.icon-sq {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(22, 160, 106, 0.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon-sq svg { width: 18px; height: 18px; stroke: var(--brand-2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- What is M3VO — icon grid ---------- */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 980px;
+}
+.icon-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 20px 22px;
+}
+.icon-card .icon-sq { margin-bottom: 14px; }
+.icon-card h3 { font-size: 15.5px; font-weight: 700; letter-spacing: -0.005em; line-height: 1.4; }
+.callout-brand {
+  margin-top: 22px;
+  background: rgba(22, 160, 106, 0.08);
+  border: 1px solid rgba(22, 160, 106, 0.25);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  font-size: 15px;
+  color: var(--ink);
+  max-width: 980px;
+}
+
 /* ---------- Steps (how it works) ---------- */
 .steps { display: flex; flex-direction: column; max-width: 800px; }
 .step { display: flex; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--line); }
@@ -419,6 +478,42 @@ td.partial { color: var(--warn); }
 }
 .step-body h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -0.01em; }
 .step-body p { font-size: 14.5px; color: var(--text-soft); line-height: 1.6; }
+
+/* ---------- Steps timeline variant (how it works redesign) ---------- */
+.steps-timeline .step { padding: 0 0 28px; border-bottom: none; }
+.steps-timeline .step:first-child { padding-top: 0; }
+.steps-timeline .step:last-child { padding-bottom: 0; }
+.step-marker { position: relative; width: 42px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.step-marker::after {
+  content: "";
+  position: absolute; top: 44px; bottom: -28px; left: 50%;
+  width: 2px; transform: translateX(-50%);
+  background: rgba(22, 160, 106, 0.25);
+}
+.steps-timeline .step:last-child .step-marker::after { display: none; }
+.steps-timeline .step-num {
+  background: var(--paper-2);
+  border: 2px solid var(--brand);
+  color: var(--brand-2);
+}
+.step-card {
+  flex: 1;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.step-card .icon-sq { margin-bottom: 12px; }
+.step-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(22, 160, 106, 0.12);
+  color: var(--brand-2);
+  font-size: 12px; font-weight: 700;
+}
+.step-pill svg { width: 12px; height: 12px; stroke: var(--brand-2); fill: none; stroke-width: 2.5; }
 
 /* ---------- FAQ ---------- */
 .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 780px; }
@@ -494,6 +589,7 @@ td.partial { color: var(--warn); }
   .pricing-grid { grid-template-columns: 1fr; }
   .price-card.featured { transform: none; }
   .story-grid { grid-template-columns: 1fr; }
+  .icon-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .nav-links, .nav-cta { display: none; }
@@ -503,4 +599,5 @@ td.partial { color: var(--warn); }
   .section { padding: 64px 0; }
   .check-list { grid-template-columns: 1fr; }
   .step { gap: 16px; }
+  .icon-grid { grid-template-columns: 1fr; }
 }

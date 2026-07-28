@@ -32,3 +32,4 @@ M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy
 - Pricing: https://m3vo.com/#pricing
 - Feature comparison vs. competitors: https://m3vo.com/#compare
 - FAQ: https://m3vo.com/#faq
+- About: https://m3vo.com/about.html

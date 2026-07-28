@@ -3,12 +3,148 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>m3vo — The transparent WhatsApp inbox</title>
-<meta name="description" content="m3vo is a shared WhatsApp inbox with automation and AI built in from day one — priced per seat, not per contact, with every fee shown up front." />
+<title>M3VO — The WhatsApp Inbox That Shows Its Receipts</title>
+<meta name="description" content="M3VO is a shared WhatsApp inbox with automation and AI built in from day one — priced per seat, not per contact, with every Meta/BSP fee itemized, never marked up." />
+<link rel="canonical" href="https://m3vo.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="M3VO" />
+<meta property="og:title" content="M3VO — The WhatsApp Inbox That Shows Its Receipts" />
+<meta property="og:description" content="Shared inbox, no-code automation, and an AI copilot — priced per seat from $19/mo, with every Meta/BSP fee itemized instead of marked up." />
+<meta property="og:url" content="https://m3vo.com/" />
+<meta property="og:image" content="https://m3vo.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="M3VO — The WhatsApp Inbox That Shows Its Receipts" />
+<meta name="twitter:description" content="Shared inbox, automation, and AI copilot included from $19/mo — seat-priced, with Meta/BSP fees itemized, never marked up." />
+<meta name="twitter:image" content="https://m3vo.com/assets/og-image.png" />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#0b1220" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
+
+<!-- Structured data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://m3vo.com/#organization",
+  "name": "M3VO",
+  "legalName": "Mevo Tech",
+  "url": "https://m3vo.com/",
+  "logo": "https://m3vo.com/assets/logo-512.png",
+  "email": "hello@m3vo.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Curative Holdings"
+  },
+  "description": "M3VO is a shared WhatsApp/omnichannel inbox with automation and AI included from the entry tier, priced per seat with Meta/BSP fees itemized rather than marked up."
+}
+</script>
+
+<!-- Structured data: Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "M3VO",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://m3vo.com/",
+  "image": "https://m3vo.com/assets/og-image.png",
+  "description": "Shared WhatsApp inbox with no-code automation, an AI copilot, and a lightweight CRM — priced per seat, not per contact, with Meta/BSP fees itemized rather than marked up.",
+  "publisher": { "@id": "https://m3vo.com/#organization" },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "url": "https://m3vo.com/#pricing",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "19",
+        "priceCurrency": "USD",
+        "unitText": "MONTH"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "url": "https://m3vo.com/#pricing",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "49",
+        "priceCurrency": "USD",
+        "unitText": "MONTH"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Scale",
+      "url": "https://m3vo.com/#pricing",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "99",
+        "priceCurrency": "USD",
+        "unitText": "MONTH"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I still pay Meta directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — M3VO routes your messages through an official Business Solution Provider, so you get one invoice. We itemize the Meta pass-through cost on it instead of folding it into an unmarked platform fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after October 1, 2026, when service messages start being charged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meta's per-message rate for service and utility replies inside the 24-hour window becomes chargeable on that date across the entire category. M3VO passes that fee through at cost, same as today — it will not be absorbed into a higher subscription price without being shown to you first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this built on an unofficial WhatsApp library?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. M3VO connects exclusively through an official Business Solution Provider on the WhatsApp Cloud API. Unofficial libraries carry real account-ban risk, which isn't acceptable for a product businesses depend on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import my contacts and history from another platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — CSV import today, with direct migration tooling for other WhatsApp inbox platforms on the roadmap."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -17,8 +153,8 @@
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark" aria-hidden="true"></span>
-      m3vo
+      <img src="assets/logo-512.png" alt="M3VO logo" class="brand-logo" width="32" height="32" />
+      M3VO
     </a>
 
     <nav class="nav-links" aria-label="Primary">
@@ -57,7 +193,7 @@
         <h1>The WhatsApp inbox that shows its receipts.</h1>
         <p class="lede">
           Every vendor in this category licenses the same Meta Cloud API and stacks a subscription on top.
-          m3vo gives you a shared inbox, no-code automation, and an AI copilot in one seat‑priced plan —
+          M3VO gives you a shared inbox, no-code automation, and an AI copilot in one seat‑priced plan —
           with Meta's per‑message pass‑through cost broken out, not buried.
         </p>
         <div class="hero-actions">
@@ -97,7 +233,7 @@
         </div>
         <div class="mock-cost-card">
           <p class="mock-cost-title">This conversation cost</p>
-          <div class="mock-cost-row"><span>m3vo subscription</span><span>included</span></div>
+          <div class="mock-cost-row"><span>M3VO subscription</span><span>included</span></div>
           <div class="mock-cost-row"><span>Meta service message</span><span>$0.00</span></div>
           <div class="mock-cost-row"><span>AI reply drafted</span><span>$0.02</span></div>
           <div class="mock-cost-row total"><span>Total pass-through</span><span>$0.02</span></div>
@@ -149,7 +285,7 @@
           <div class="cost-layer-bar" style="--w: 70%"></div>
         </div>
       </div>
-      <p class="cost-note">m3vo's plans start at $19/mo for that last layer — with automation and AI included, not gated behind a $129+ tier.</p>
+      <p class="cost-note">M3VO's plans start at $19/mo for that last layer — with automation and AI included, not gated behind a $129+ tier.</p>
     </div>
   </section>
 
@@ -272,7 +408,7 @@
           </thead>
           <tbody>
             <tr class="highlight">
-              <td><span class="brand-chip">m3vo</span></td>
+              <td><span class="brand-chip">M3VO</span></td>
               <td>$19/mo</td>
               <td class="yes">Included</td>
               <td class="yes">Included (Growth+)</td>
@@ -337,15 +473,15 @@
       <div class="faq-list">
         <details>
           <summary>Do I still pay Meta directly?</summary>
-          <p>No — m3vo routes your messages through an official Business Solution Provider, so you get one invoice. We itemize the Meta pass-through cost on it instead of folding it into an unmarked "platform fee."</p>
+          <p>No — M3VO routes your messages through an official Business Solution Provider, so you get one invoice. We itemize the Meta pass-through cost on it instead of folding it into an unmarked "platform fee."</p>
         </details>
         <details>
           <summary>What happens after October 1, 2026, when service messages start being charged?</summary>
-          <p>Meta's per-message rate for service and utility replies inside the 24-hour window becomes chargeable on that date across the entire category. m3vo passes that fee through at cost, same as today — it will not be absorbed into a higher subscription price without being shown to you first.</p>
+          <p>Meta's per-message rate for service and utility replies inside the 24-hour window becomes chargeable on that date across the entire category. M3VO passes that fee through at cost, same as today — it will not be absorbed into a higher subscription price without being shown to you first.</p>
         </details>
         <details>
           <summary>Is this built on an unofficial WhatsApp library?</summary>
-          <p>No. m3vo connects exclusively through an official BSP on the WhatsApp Cloud API. Unofficial libraries carry real account-ban risk, which isn't acceptable for a product businesses depend on.</p>
+          <p>No. M3VO connects exclusively through an official BSP on the WhatsApp Cloud API. Unofficial libraries carry real account-ban risk, which isn't acceptable for a product businesses depend on.</p>
         </details>
         <details>
           <summary>Can I import my contacts and history from another platform?</summary>
@@ -360,7 +496,7 @@
     <div class="container cta-inner">
       <h2>Stop paying a contact tax for a commodity connection.</h2>
       <p>Start free. No card required. See the real cost of every conversation from day one.</p>
-      <a href="mailto:hello@m3vo.io" class="btn btn-primary btn-lg">Get started — hello@m3vo.io</a>
+      <a href="mailto:hello@m3vo.com" class="btn btn-primary btn-lg">Get started — hello@m3vo.com</a>
     </div>
   </section>
 
@@ -369,10 +505,10 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>m3vo</span>
+      <img src="assets/logo-512.png" alt="M3VO logo" class="footer-logo" width="26" height="26" />
+      <span>M3VO</span>
     </div>
-    <p>© 2026 m3vo. WhatsApp is a trademark of Meta Platforms, Inc. m3vo is an independent product built on the official WhatsApp Business Platform via a licensed BSP.</p>
+    <p>© 2026 M3VO — a product of Mevo Tech, a project by Curative Holdings. WhatsApp is a trademark of Meta Platforms, Inc. M3VO is an independent product built on the official WhatsApp Business Platform via a licensed BSP.</p>
   </div>
 </footer>
 

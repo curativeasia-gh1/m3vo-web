@@ -1,0 +1,34 @@
+# M3VO
+
+> M3VO is a shared WhatsApp/omnichannel inbox with no-code automation and an AI copilot included from the entry tier, priced per seat rather than per contact. Meta and BSP messaging fees are itemized at cost on every invoice, never marked up.
+
+Company: Mevo Tech, a project by Curative Holdings.
+Contact: hello@m3vo.com
+Website: https://m3vo.com/
+
+## Product
+
+- Shared team inbox for WhatsApp, Instagram, and web chat
+- No-code automation flow builder (included from the Starter plan)
+- AI copilot: drafts replies, qualifies leads, summarizes long threads
+- Lightweight CRM / pipeline view
+- Usage-based billing dashboard with itemized Meta/BSP pass-through costs
+- Connects exclusively through an official WhatsApp Business Solution Provider (not an unofficial library)
+
+## Pricing (USD/month, per seat — illustrative, confirm current rates at m3vo.com/#pricing)
+
+- Starter: $19/mo — 1–2 seats, shared inbox, contact profiles, basic automation
+- Growth: $49/mo — up to 5 seats, no-code automation builder, AI copilot, lightweight CRM
+- Scale: $99/mo — generous seat cap, multi-channel (WhatsApp + Instagram + web), priority support
+
+Plans exclude Meta/BSP per-message fees, which are passed through at cost and itemized separately — never marked up.
+
+## Positioning vs. the category
+
+M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy, and Gallabox. The differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
+
+## Links
+
+- Pricing: https://m3vo.com/#pricing
+- Feature comparison vs. competitors: https://m3vo.com/#compare
+- FAQ: https://m3vo.com/#faq

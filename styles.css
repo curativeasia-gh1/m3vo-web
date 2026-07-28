@@ -440,7 +440,7 @@ td.partial { color: var(--warn); }
 .quote-panel .quote-mark { font-family: var(--mono); font-size: 52px; color: var(--brand); line-height: 1; display: block; margin-bottom: 6px; }
 .quote-panel p { font-size: 19px; line-height: 1.6; color: #e6ebf7; }
 .quote-panel cite { display: block; margin-top: 18px; font-size: 13px; font-style: normal; color: var(--text-dim-on-dark); }
-.story-copy p { color: var(--text-soft); font-size: 16.5px; line-height: 1.7; margin-bottom: 16px; }
+.story-copy p { color: var(--text-soft); font-size: 16.5px; line-height: 1.8; max-width: 64ch; margin-bottom: 26px; }
 .story-copy p:last-child { margin-bottom: 0; }
 
 .facts-table td:first-child { color: var(--text-soft); width: 180px; }

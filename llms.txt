@@ -1,57 +1,56 @@
 # M3VO
 
-> M3VO is a shared WhatsApp inbox and customer communication platform. It brings a team's WhatsApp conversations, enquiries, and follow-ups into one workspace — with no-code automation and an AI copilot included from the entry tier, priced per seat rather than per contact. Meta and BSP messaging fees are itemized at cost on every invoice, never marked up.
+> M3VO is a Singapore-based software development and business automation company. It builds custom software, SaaS platforms, AI automation, WhatsApp customer communication systems, CRM workflows and API integrations for SMEs and growing businesses in Singapore and across Asia. M3VO starts with the business problem — what is slowing work down — then decides what to simplify, connect, automate or rebuild. Its flagship product is a shared WhatsApp inbox with automation and an AI copilot, priced per seat.
 
-Company: Mevo Tech, a project by Curative Holdings.
+Company: M3VO (built by Mevo Tech)
 Contact: hello@m3vo.com
+WhatsApp: +65 8194 6188
 Website: https://m3vo.com/
 
-## Product
+## What M3VO does
+- AI & business automation — https://m3vo.com/ai-automation/
+- Custom software development — https://m3vo.com/custom-software-development/
+- WhatsApp & customer communication (shared inbox) — https://m3vo.com/whatsapp-business/
+- CRM & workflow automation — https://m3vo.com/crm-workflow-automation/
+- System integration & APIs — https://m3vo.com/system-integration/
+- Cloud & business infrastructure — https://m3vo.com/cloud-infrastructure/
 
-M3VO lets multiple team members manage customer conversations from one workspace:
+## Industries
+- Healthcare & clinics — https://m3vo.com/healthcare-software/
+- Dental & aesthetic clinics — https://m3vo.com/dental-clinic-software/
+- Distribution & B2B — https://m3vo.com/industries/distribution/
+- Retail & e-commerce — https://m3vo.com/industries/ecommerce/
+- Professional services — https://m3vo.com/industries/professional-services/
+- Multi-location businesses — https://m3vo.com/industries/multi-location/
 
-- Receive and reply to WhatsApp messages
-- Assign conversations to specific team members
-- Add internal notes for team collaboration
-- Organise conversations by status (open, pending, resolved)
-- Track customer enquiries and follow-ups
-- Create automated messaging workflows (no-code, included from Starter)
-- Use AI assistance to draft replies, summarise conversations, and qualify leads
-- Maintain visibility across customer-facing teams
-- Manage multiple WhatsApp numbers from one platform
-- Connect customer conversations with existing business systems
-- Lightweight CRM / pipeline view alongside the shared inbox
-- Connects exclusively through an official WhatsApp Business Solution Provider (BSP) — not an unofficial library
+## Flagship product: M3VO WhatsApp shared inbox
+A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Priced per seat, never per contact; Meta/BSP conversation fees are itemised at cost, never marked up.
 
-## Who it's for
+### Pricing (USD/month, per seat — illustrative, confirm current rates at https://m3vo.com/whatsapp-business/)
+- Starter — $19/mo: shared WhatsApp inbox, contact profiles & canned replies, basic automation, no contact/MAC tax
+- Growth — $49/mo: everything in Starter + no-code automation flow builder, AI copilot, lightweight CRM/pipeline
+- Scale — $99/mo: everything in Growth + multi-channel (WhatsApp + Instagram + web), priority support, usage-based billing dashboard
 
-M3VO is built for businesses that have outgrown the standard WhatsApp Business app, including: clinics and healthcare businesses, dental and aesthetic clinics, retail and e-commerce businesses, professional service providers, education and training providers, and multi-location businesses.
+Plans exclude Meta/BSP per-message fees, which are passed through at cost and itemised separately. Pricing is based on team size, not contact-list size.
 
-## Pricing (USD/month, per seat — illustrative, confirm current rates at m3vo.com/#pricing)
+### Positioning vs the category
+M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy and Gallabox. Differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
 
-- Starter: $19/mo — 1–2 seats, shared inbox, contact profiles, basic automation
-- Growth: $49/mo — up to 5 seats, no-code automation builder, AI copilot, lightweight CRM
-- Scale: $99/mo — generous seat cap, multi-channel (WhatsApp + Instagram + web), priority support
-
-Plans exclude Meta/BSP per-message fees, which are passed through at cost and itemized separately — never marked up. Pricing is based on team size, not the size of a business's contact list.
-
-## Positioning vs. the category
-
-M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy, and Gallabox. The differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
+## How M3VO works
+Understand -> Identify -> Simplify -> Build -> Connect -> Improve. M3VO maps the actual workflow before building and connects existing systems (CRM, ERP/Odoo, e-commerce, payments, WhatsApp, email, accounting) rather than replacing what already works. https://m3vo.com/how-we-work/
 
 ## Frequently asked
+- What does M3VO do? — Builds custom software, AI automation, workflow systems and integrations that reduce manual work.
+- Is M3VO a software development company? — Yes: custom web apps, SaaS platforms, AI workflows and system integrations.
+- Where is M3VO based? — Singapore; works with businesses across Asia.
+- Can M3VO build a SaaS platform? — Yes.
+- Can M3VO automate WhatsApp? — Yes, on the official WhatsApp Business Platform (shared inbox, routing, AI, automation, CRM).
+- Is the WhatsApp product official? — Yes, via an official BSP, not an unofficial library.
 
-- What is M3VO? — A shared WhatsApp inbox and customer communication platform for teams.
-- Is M3VO official? — Yes, connects via an official WhatsApp Business Solution Provider, not an unofficial library.
-- Is M3VO a CRM? — It includes CRM-style functionality (pipeline, contact profiles, history) alongside the inbox.
-- Is M3VO only for large companies? — No, built for growing SMBs as well as larger teams; pricing is per seat.
-- Full FAQ: https://m3vo.com/#faq
-
-## Links
-
-- Pricing: https://m3vo.com/#pricing
-- Feature comparison vs. competitors: https://m3vo.com/#compare
-- How it works: https://m3vo.com/#how-it-works
-- Who it's for: https://m3vo.com/#who-its-for
-- FAQ: https://m3vo.com/#faq
-- About: https://m3vo.com/about.html
+## Key links
+- Home: https://m3vo.com/
+- WhatsApp product & pricing: https://m3vo.com/whatsapp-business/
+- How we work: https://m3vo.com/how-we-work/
+- Resources: https://m3vo.com/insights/
+- About: https://m3vo.com/about/
+- Contact: https://m3vo.com/contact/

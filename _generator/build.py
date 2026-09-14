@@ -641,9 +641,9 @@ LEAVES["/custom-software-development/"] = dict(
   cta_text="You don't need a specification. Describe how the work happens today and we'll propose what to build.")
 
 WA_TIERS = [
- ("Starter","From $19 / seat / mo",["Shared WhatsApp inbox","Contact profiles &amp; canned replies","Basic automation rules","No contact / MAC tax"]),
- ("Growth","Everything in Starter, plus",["No-code automation flow builder","AI copilot included","Lightweight CRM / pipeline view"]),
- ("Scale","Everything in Growth, plus",["WhatsApp + Instagram + web","Priority support","Usage-based billing dashboard"]),
+ ("Starter","$19 / seat / mo",["Shared WhatsApp inbox","Contact profiles &amp; canned replies","Basic automation rules","No contact / MAC tax"]),
+ ("Growth","$49 / seat / mo",["Everything in Starter","No-code automation flow builder","AI copilot included","Lightweight CRM / pipeline view"]),
+ ("Scale","$99 / seat / mo",["Everything in Growth","WhatsApp + Instagram + web","Priority support","Usage-based billing dashboard"]),
 ]
 WA_EXTRA = (
  '<section class="section"><div class="wrap">'
@@ -653,7 +653,7 @@ WA_EXTRA = (
  '<div class="sol-grid" style="margin-top:30px">'
  + "".join(f'<div class="sol"><h3>{t}</h3><p style="font-family:var(--ff-head);font-weight:600;color:var(--green-600);margin:2px 0 14px;font-size:1.05rem">{p}</p>{tick_list(fs)}</div>' for t,p,fs in WA_TIERS)
  + '</div>'
- '<p style="margin-top:18px;color:var(--muted);font-size:.9rem">Tiers reflect the current M3VO plan structure — confirm live pricing and currency before publishing.</p>'
+ '<p style="margin-top:18px;color:var(--muted);font-size:.9rem">Prices in USD, per seat. Meta/BSP conversation fees are billed separately at cost. Confirm current rates before publishing.</p>'
  '</div></section>'
  '<section class="section section--wash"><div class="wrap"><span class="eyebrow">The category, side by side</span>'
  '<h2 class="measure">Everything the $79+/mo tier gives you elsewhere — included from $19.</h2>'
@@ -1001,6 +1001,64 @@ def notfound():
     return page("Page not found | M3VO","The page you're looking for doesn't exist.","/404.html", body, [])
 
 # ================================================================ build
+LLMS = """# M3VO
+
+> M3VO is a Singapore-based software development and business automation company. It builds custom software, SaaS platforms, AI automation, WhatsApp customer communication systems, CRM workflows and API integrations for SMEs and growing businesses in Singapore and across Asia. M3VO starts with the business problem — what is slowing work down — then decides what to simplify, connect, automate or rebuild. Its flagship product is a shared WhatsApp inbox with automation and an AI copilot, priced per seat.
+
+Company: M3VO (built by Mevo Tech)
+Contact: hello@m3vo.com
+WhatsApp: +65 8194 6188
+Website: https://m3vo.com/
+
+## What M3VO does
+- AI & business automation — https://m3vo.com/ai-automation/
+- Custom software development — https://m3vo.com/custom-software-development/
+- WhatsApp & customer communication (shared inbox) — https://m3vo.com/whatsapp-business/
+- CRM & workflow automation — https://m3vo.com/crm-workflow-automation/
+- System integration & APIs — https://m3vo.com/system-integration/
+- Cloud & business infrastructure — https://m3vo.com/cloud-infrastructure/
+
+## Industries
+- Healthcare & clinics — https://m3vo.com/healthcare-software/
+- Dental & aesthetic clinics — https://m3vo.com/dental-clinic-software/
+- Distribution & B2B — https://m3vo.com/industries/distribution/
+- Retail & e-commerce — https://m3vo.com/industries/ecommerce/
+- Professional services — https://m3vo.com/industries/professional-services/
+- Multi-location businesses — https://m3vo.com/industries/multi-location/
+
+## Flagship product: M3VO WhatsApp shared inbox
+A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Priced per seat, never per contact; Meta/BSP conversation fees are itemised at cost, never marked up.
+
+### Pricing (USD/month, per seat — illustrative, confirm current rates at https://m3vo.com/whatsapp-business/)
+- Starter — $19/mo: shared WhatsApp inbox, contact profiles & canned replies, basic automation, no contact/MAC tax
+- Growth — $49/mo: everything in Starter + no-code automation flow builder, AI copilot, lightweight CRM/pipeline
+- Scale — $99/mo: everything in Growth + multi-channel (WhatsApp + Instagram + web), priority support, usage-based billing dashboard
+
+Plans exclude Meta/BSP per-message fees, which are passed through at cost and itemised separately. Pricing is based on team size, not contact-list size.
+
+### Positioning vs the category
+M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy and Gallabox. Differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
+
+## How M3VO works
+Understand -> Identify -> Simplify -> Build -> Connect -> Improve. M3VO maps the actual workflow before building and connects existing systems (CRM, ERP/Odoo, e-commerce, payments, WhatsApp, email, accounting) rather than replacing what already works. https://m3vo.com/how-we-work/
+
+## Frequently asked
+- What does M3VO do? — Builds custom software, AI automation, workflow systems and integrations that reduce manual work.
+- Is M3VO a software development company? — Yes: custom web apps, SaaS platforms, AI workflows and system integrations.
+- Where is M3VO based? — Singapore; works with businesses across Asia.
+- Can M3VO build a SaaS platform? — Yes.
+- Can M3VO automate WhatsApp? — Yes, on the official WhatsApp Business Platform (shared inbox, routing, AI, automation, CRM).
+- Is the WhatsApp product official? — Yes, via an official BSP, not an unofficial library.
+
+## Key links
+- Home: https://m3vo.com/
+- WhatsApp product & pricing: https://m3vo.com/whatsapp-business/
+- How we work: https://m3vo.com/how-we-work/
+- Resources: https://m3vo.com/insights/
+- About: https://m3vo.com/about/
+- Contact: https://m3vo.com/contact/
+"""
+
 def write(path_rel, content):
     full=os.path.join(DIST, path_rel)
     os.makedirs(os.path.dirname(full), exist_ok=True)
@@ -1035,6 +1093,7 @@ def build():
     sm+='</urlset>\n'
     write("sitemap.xml", sm)
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
+    write("llms.txt", LLMS)
     # Cloudflare Pages Function for the contact form
     write("functions/api/contact.js", CONTACT_FN)
     # standalone preview (inlined homepage) — HOME_BODY/HOME_LD were set when home() ran above

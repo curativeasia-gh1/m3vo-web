@@ -459,8 +459,8 @@ def home(inline=False):
     aiq = f'''<section class="section"><div class="wrap"><div class="frow" style="border:0;padding:0">
       <div><span class="eyebrow">On AI</span>
         <h2>AI should remove work — not become another tool to manage.</h2>
-        <p class="lead" style="margin-top:16px;color:var(--body)">The question isn't whether you need AI. It's where AI can actually make the business easier to operate. We apply it where it saves real time.</p>
-        <div class="btn-row" style="margin-top:22px"><a class="btn btn-ghost" href="/ai-automation/">Explore AI automation</a></div></div>
+        <p class="lead" style="margin-top:16px;color:var(--body)">The question isn't whether you need AI. It's where AI can actually make the business easier to operate. Increasingly that means <strong>AI agents</strong> — software that doesn't just answer, but uses your tools and completes the task, with your team in control. We apply it where it saves real time.</p>
+        <div class="btn-row" style="margin-top:22px"><a class="btn btn-ghost" href="/ai-automation/">Explore AI agents &amp; automation</a></div></div>
       <div class="fr-media">{tick_list([
         "Understanding incoming enquiries","Drafting customer responses","Summarising long conversations",
         "Classifying and qualifying leads","Extracting information from documents","Searching company knowledge",
@@ -510,7 +510,7 @@ def home(inline=False):
       {"@context":"https://schema.org","@type":"Organization","name":"M3VO","alternateName":"Mevo Tech","url":BASE+"/",
        "logo":BASE+"/assets/m3vo-logo.png","image":BASE+"/assets/og-image.png","email":"hello@m3vo.com","description":ENTITY_LONG,
        "areaServed":["Singapore","Southeast Asia","Asia"],
-       "knowsAbout":["AI software development","Custom software development","SaaS development",
+       "knowsAbout":["AI agents","Agentic AI","AI software development","Custom software development","SaaS development",
           "Business automation","Workflow automation","CRM automation","WhatsApp Business automation",
           "API integration","Healthcare software"],
        "contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@m3vo.com","url":BASE+"/contact/","areaServed":"SG"}},
@@ -528,6 +528,7 @@ FAQS = [
  ("Is M3VO a software development company?","Yes. M3VO develops custom web applications, SaaS platforms, business software, AI-powered workflows and system integrations."),
  ("Where is M3VO based?","M3VO is based in Singapore and works with businesses operating locally and across Asia."),
  ("Does M3VO build AI software?","Yes. M3VO develops AI-powered customer communication, workflow automation, document processing, knowledge assistants and other business AI applications."),
+ ("Does M3VO build AI agents (agentic AI)?","Yes. M3VO builds AI agents — software that reads enquiries, uses your business tools such as WhatsApp, CRM and ERP, takes actions and completes tasks, with human review where it matters. We design agentic workflows around the systems you already use rather than replacing them."),
  ("Can M3VO build a SaaS platform?","Yes. M3VO can design and develop SaaS products including web applications, customer portals, subscription systems, dashboards and specialised industry software."),
  ("Can M3VO automate WhatsApp?","Yes — using the official WhatsApp Business Platform, including shared inboxes, routing, AI assistance, automated replies, lead management and CRM integration."),
  ("Can M3VO integrate with existing software?","Yes. M3VO connects existing systems using APIs and automation, including CRM, ERP, e-commerce, payments, accounting, WhatsApp, email and internal applications."),
@@ -585,11 +586,11 @@ def leaf(cfg):
 LEAVES = {}
 
 LEAVES["/ai-automation/"] = dict(
-  path="/ai-automation/", icon="ai", service_type="AI automation",
-  title="AI Automation & AI Software Development Singapore | M3VO",
-  desc="M3VO builds AI-powered automation around real business processes — AI receptionists, customer service, document AI, knowledge assistants and workflow automation.",
+  path="/ai-automation/", icon="ai", service_type="Agentic AI and business automation",
+  title="AI Agents & Business Automation Singapore | M3VO",
+  desc="M3VO builds AI agents and agentic automation for real business processes — AI receptionists, customer service, document AI, knowledge assistants and workflow automation.",
   crumbs=[("Home","/"),("Solutions","/#solutions"),("AI & Business Automation",None)],
-  h1="AI automation that removes work — not another tool to manage.",
+  h1="AI agents and automation that remove work — not another tool to manage.",
   lead="M3VO builds AI-powered automation designed around real business processes. Instead of dropping in a generic chatbot and calling it transformation, we find the specific points where AI saves employees time or improves customer response.",
   answer_title="What is AI business automation?",
   answer_paras=["AI business automation combines artificial intelligence with software workflows to perform or assist repetitive business processes such as customer enquiries, document processing, lead qualification, reporting and follow-ups.",
@@ -598,7 +599,8 @@ LEAVES["/ai-automation/"] = dict(
   chain=[("chat","Enquiry",False),("ai","AI qualifies",True),("crm","CRM lead",False),("users","Salesperson",False),("doc","Quotation",False),("bell","Follow-up",False)],
   chain_note="AI does the reading, sorting and drafting. Your team makes the calls.",
   build_eyebrow="AI automation examples", build_title="Practical applications, not hype.",
-  build_list=["AI customer service||analyse enquiries, understand intent and help prepare accurate responses",
+  build_list=["AI agents (agentic)||read enquiries, use your tools and complete multi-step tasks, with human review where it matters",
+    "AI customer service||analyse enquiries, understand intent and help prepare accurate responses",
     "AI receptionist||handle common questions, qualify enquiries, collect information and assist with scheduling",
     "AI sales assistant||qualify leads, summarise conversations and identify follow-up actions",
     "Document AI||read documents, extract structured information and route it into business systems",
@@ -608,6 +610,7 @@ LEAVES["/ai-automation/"] = dict(
   when_intro="M3VO designs AI to automate appropriate tasks while letting you decide where human review or approval is required.",
   when_list=["Understand incoming enquiries","Draft customer responses","Summarise long conversations",
     "Classify and qualify leads","Extract information from documents","Prepare reports and route requests"],
+  extra_html=f'<section class="section section--tight"><div class="wrap">{answer("What is agentic AI (an AI agent)?",["An AI agent is software that can understand a goal, use your business tools — WhatsApp, CRM, ERP, email — take actions and complete a task, rather than only answering a question. Agentic AI describes workflows where several of these steps run with minimal manual input.","M3VO builds AI agents around the systems you already use, with human review where it matters. The aim is the same as everything else we build: remove unnecessary work, not add another tool to manage."])}</div></section>',
   related=[("Custom Software Development","/custom-software-development/"),("WhatsApp & Communication","/whatsapp-business/"),
     ("CRM & Workflow Automation","/crm-workflow-automation/"),("Healthcare & Clinics","/healthcare-software/")],
   cta_title="Explore an AI use case with us.",
@@ -940,11 +943,14 @@ def insights():
         lis="".join(f'<li>{q}</li>' for q in qs)
         cards+=f'''<div class="sol"><span class="sic">{ic(i)}</span><h3>{t}</h3>
           <ul class="reduce-list" style="columns:1;margin-top:6px">{lis}</ul></div>'''
+    pub_cards = "".join(f'<a class="sol" style="text-decoration:none;display:block" href="{a["path"]}"><span class="sic">{ic("doc")}</span><h3>{a["h1"]}</h3><p style="color:var(--body);margin-top:6px">{a["dek"]}</p><span class="textlink" style="margin-top:10px;display:inline-block">Read the guide {ic("arrow-right")}</span></a>' for a in ARTICLES)
+    pubs = f'<section class="section" style="padding-top:0"><div class="wrap"><span class="eyebrow">Latest guides</span><div class="sol-grid" style="margin-top:14px">{pub_cards}</div></div></section>'
     body=f'''<section class="section section--tight" style="padding-top:26px">{crumbs([("Home","/"),("Resources",None)])}
       <div class="wrap" style="margin-top:8px"><span class="eyebrow">Resources</span>
       <h1 style="max-width:24ch">Practical ideas for running a better business with software.</h1>
-      <p class="lead measure" style="margin-top:18px;color:var(--body)">Not a generic tech blog. These are the real questions business owners ask — answered clearly. Content is rolling out across these clusters.</p></div></section>
-      <section class="section" style="padding-top:0"><div class="wrap"><div class="sol-grid">{cards}</div></div></section>
+      <p class="lead measure" style="margin-top:18px;color:var(--body)">Not a generic tech blog. These are the real questions business owners ask — answered clearly. New guides are published here regularly.</p></div></section>
+      {pubs}
+      <section class="section" style="padding-top:0"><div class="wrap"><span class="eyebrow">More topics we cover</span><div class="sol-grid" style="margin-top:14px">{cards}</div></div></section>
       {cta_band("Have a question we haven't covered?","Ask it directly — describe your situation and we'll give you a straight answer.")}'''
     return page("Resources & Insights | M3VO","Practical guides on AI for SMEs, custom software, WhatsApp Business, business automation and healthcare technology from M3VO.",
         "/insights/", body, [breadcrumb_ld([("Home","/"),("Resources","/insights/")])])
@@ -1039,6 +1045,10 @@ Plans exclude Meta/BSP per-message fees, which are passed through at cost and it
 ### Positioning vs the category
 M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy and Gallabox. Differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
 
+## Guides
+- Custom software development cost in Singapore (2026) — https://m3vo.com/insights/how-much-does-custom-software-cost-singapore/
+- WhatsApp Business App vs WhatsApp Business Platform — https://m3vo.com/insights/whatsapp-business-app-vs-platform/
+
 ## How M3VO works
 Understand -> Identify -> Simplify -> Build -> Connect -> Improve. M3VO maps the actual workflow before building and connects existing systems (CRM, ERP/Odoo, e-commerce, payments, WhatsApp, email, accounting) rather than replacing what already works. https://m3vo.com/how-we-work/
 
@@ -1064,6 +1074,155 @@ def write(path_rel, content):
     os.makedirs(os.path.dirname(full), exist_ok=True)
     open(full,"w",encoding="utf-8").write(content)
 
+def article(a):
+    bc = [("Home","/"),("Resources","/insights/"),(a["crumb"], a["path"])]
+    meta = f'By M3VO · Published {a["published"]}' + (f' · Updated {a["updated"]}' if a.get("updated") else '')
+    head = f'''<section class="section section--tight" style="padding-top:26px">{crumbs(bc)}
+      <div class="wrap" style="margin-top:8px;max-width:760px">
+        <span class="eyebrow">{a.get("eyebrow","Guide")}</span>
+        <h1 style="margin-top:10px">{a["h1"]}</h1>
+        <p class="lead" style="margin-top:16px;color:var(--body)">{a["dek"]}</p>
+        <p style="margin-top:14px;color:var(--muted);font-size:.9rem">{meta}</p></div></section>'''
+    lead = f'<section class="section section--tight" style="padding-top:0"><div class="wrap" style="max-width:760px">{answer(a["answer_title"], a["answer_paras"])}</div></section>'
+    secs = "".join(f'<section class="section section--tight" style="padding-top:0"><div class="wrap" style="max-width:760px"><h2 style="margin-bottom:14px">{h}</h2>{b}</div></section>' for h,b in a["sections"])
+    faq_html = "".join(f'<details class="qa"><summary>{q}<span class="qi">{ic("plus")}</span></summary><div class="qbody">{ans}</div></details>' for q,ans in a.get("faqs",[]))
+    faq = f'<section class="section section--tight" style="padding-top:0"><div class="wrap" style="max-width:760px"><h2 style="margin-bottom:6px">Frequently asked questions</h2><div class="faq">{faq_html}</div></div></section>' if faq_html else ""
+    rel = related(a["related"]) if a.get("related") else ""
+    band = cta_band(a.get("cta_title","Tell us what slows you down."), a.get("cta_text","Describe the workflow you want to improve. We'll tell you whether the answer is automation, AI, integration or custom software."))
+    body = head+lead+secs+faq+rel+band
+    ld = [
+      {"@context":"https://schema.org","@type":"Article","headline":a["h1"],"description":a["desc"],
+       "datePublished":a["published_iso"],"dateModified":a.get("updated_iso",a["published_iso"]),
+       "author":{"@type":"Organization","name":"M3VO","url":BASE+"/"},
+       "publisher":{"@type":"Organization","name":"M3VO","logo":{"@type":"ImageObject","url":BASE+"/assets/m3vo-logo.png"}},
+       "image":BASE+"/assets/og-image.png","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":BASE+a["path"]}},
+      breadcrumb_ld(bc)]
+    if a.get("faqs"):
+        ld.append({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+          {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":ans}} for q,ans in a["faqs"]]})
+    return page(a["title"], a["desc"], a["path"], body, ld)
+
+# ---------------------------------------------------------------- articles (AEO)
+_TABLE = 'style="width:100%;border-collapse:collapse;margin-top:4px"'
+_TH = 'style="text-align:left;padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:top;font-family:var(--display,inherit)"'
+_TD = 'style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)"'
+
+ARTICLES = [
+ dict(
+  path="/insights/how-much-does-custom-software-cost-singapore/", crumb="Cost of custom software",
+  title="Custom Software Development Cost in Singapore (2026) | M3VO",
+  desc="What custom software really costs in Singapore in 2026 — typical price ranges by project size, what drives the cost, and how PSG and EDG grants can offset up to 50%.",
+  eyebrow="Custom software", published="14 September 2026", published_iso="2026-09-14",
+  h1="How much does custom software cost in Singapore?",
+  dek="A straight answer on price ranges, what actually drives the cost, and how government grants change the maths for SMEs.",
+  answer_title="The short answer",
+  answer_paras=[
+    "In Singapore, custom software typically costs <strong>S$20,000–S$40,000</strong> for a simple internal tool, <strong>S$50,000–S$150,000</strong> for a mid-sized business system, and <strong>S$150,000 and up</strong> for a complex platform or SaaS product. Senior developer time through local agencies runs roughly S$150–S$240 an hour.",
+    "The real figure depends on scope, not a price list — two projects described the same way can differ fivefold once you count integrations, users, data migration and compliance. Eligible SMEs can offset up to 50% of qualifying cost through government grants, covered below."],
+  sections=[
+   ("What actually drives the price",'''<p>Custom software is priced by the work needed to build and run it, so the cost follows a handful of variables:</p>
+    <ul class="reduce-list" style="columns:1;margin-top:10px">
+    <li><strong>Scope and complexity</strong> — how many screens, roles and business rules the system handles.</li>
+    <li><strong>Integrations</strong> — every external system it must talk to (accounting, ERP, WhatsApp, payment gateway) adds work.</li>
+    <li><strong>Users and access</strong> — a single-team tool is far simpler than a platform with customer or partner logins.</li>
+    <li><strong>Data migration</strong> — moving years of spreadsheet or legacy data in cleanly is routinely underestimated.</li>
+    <li><strong>Design and UX</strong> — a rough internal tool costs less than a polished customer-facing product.</li>
+    <li><strong>Compliance and security</strong> — PDPA-aligned data handling, audit trails and access control add scope where they apply.</li>
+    <li><strong>Ongoing costs</strong> — hosting, maintenance and support recur monthly and are separate from the build.</li></ul>'''),
+   ("Typical price ranges in Singapore (2026)",f'''<div style="overflow-x:auto"><table {_TABLE}>
+    <thead><tr><th {_TH}>Project type</th><th {_TH}>Typical range</th><th {_TH}>What it usually includes</th></tr></thead>
+    <tbody>
+    <tr><td {_TD}><strong>Simple internal tool</strong></td><td {_TD}>S$20k–S$40k</td><td {_TD}>One focused workflow, a handful of users, basic reporting, light or no integration.</td></tr>
+    <tr><td {_TD}><strong>Business system</strong></td><td {_TD}>S$50k–S$150k</td><td {_TD}>Multiple roles and workflows, a few integrations, dashboards, real user management.</td></tr>
+    <tr><td {_TD}><strong>Platform or SaaS product</strong></td><td {_TD}>S$150k+</td><td {_TD}>Customer or partner logins, billing, multiple integrations, higher design and security bar.</td></tr>
+    </tbody></table></div>
+    <p style="margin-top:14px;color:var(--muted)">Ranges are indicative of the Singapore market in 2026, not a quote. Hosting, maintenance and support are ongoing and priced separately from the build.</p>'''),
+   ("How you'll be quoted",'''<p>Three pricing models are common, and the right one depends on how well-defined the work is:</p>
+    <ul class="reduce-list" style="columns:1;margin-top:10px">
+    <li><strong>Fixed price</strong> — best when the scope is clear. Predictable, but changes mid-project mean change requests.</li>
+    <li><strong>Time and materials</strong> — best when the scope will evolve. You pay for time used and keep flexibility.</li>
+    <li><strong>Retainer</strong> — for ongoing improvement once the system is live and being used.</li></ul>
+    <p style="margin-top:12px">A sensible middle path is a fixed price for a tightly-scoped first phase, then a retainer as the system grows with real usage.</p>'''),
+   ("Can a grant reduce the cost? PSG vs EDG",f'''<p>Two Enterprise Singapore grants come up most for software, and they fund very different things:</p>
+    <div style="overflow-x:auto"><table {_TABLE}>
+    <thead><tr><th {_TH}>&nbsp;</th><th {_TH}>PSG (Productivity Solutions Grant)</th><th {_TH}>EDG (Enterprise Development Grant)</th></tr></thead>
+    <tbody>
+    <tr><td {_TD}><strong>Funds</strong></td><td {_TD}>Pre-approved, packaged IT solutions from the official list</td><td {_TD}>Bespoke transformation projects, including custom builds</td></tr>
+    <tr><td {_TD}><strong>Support (SME)</strong></td><td {_TD}>Up to 50%</td><td {_TD}>Up to 50% of qualifying costs</td></tr>
+    <tr><td {_TD}><strong>Cap</strong></td><td {_TD}>S$30,000 per company per financial year</td><td {_TD}>Assessed per project (no fixed catalogue cap)</td></tr>
+    <tr><td {_TD}><strong>Covers</strong></td><td {_TD}>Licence / subscription of the approved solution</td><td {_TD}>Consultancy, software/equipment and internal manpower</td></tr>
+    <tr><td {_TD}><strong>Custom build?</strong></td><td {_TD}>Usually no</td><td {_TD}>Yes</td></tr>
+    </tbody></table></div>
+    <p style="margin-top:14px">Both require a Singapore-registered business with at least 30% local shareholding, and you must apply <em>before</em> committing spend. Approval is assessed, never automatic — treat a grant as a possible offset, not a discount you can bank on. A grant advisor or the Business Grants Portal is the right place to confirm your position.</p>
+    <p style="margin-top:12px;color:var(--muted)">Note: a new consolidated grant, EDGE, was announced at Budget 2026 to merge EDG, PSG and MRA, with launch expected in the second half of 2026 and support reportedly capped around S$100,000 a year. Figures are provisional — check the current position before you plan around it.</p>'''),
+   ("Is custom cheaper than off-the-shelf?",'''<p>Usually not upfront. Off-the-shelf SaaS is cheaper to start and faster to switch on. Custom software earns its cost when off-the-shelf genuinely can't match how you work, when per-seat SaaS fees keep climbing with your team, or when the software itself is a competitive advantage. If none of those apply, the cheaper answer is often to <strong>integrate</strong> the tools you already have rather than build from scratch.</p>'''),
+   ("How to keep the cost sensible",'''<ul class="reduce-list" style="columns:1;margin-top:2px">
+    <li>Start with the single most painful workflow — not everything at once.</li>
+    <li>Integrate before rebuilding; keep the systems that already work.</li>
+    <li>Phase the build so you're using the first release while the rest is developed.</li>
+    <li>Fix the scope for phase one so the first number is predictable.</li></ul>'''),
+  ],
+  faqs=[
+   ("What's the minimum realistic budget for custom software?","For a genuinely custom build, plan for at least S$15,000–S$20,000. Below that, you're usually better served configuring an off-the-shelf tool or a no-code platform."),
+   ("Can I use the PSG grant for a custom build?","Generally no. PSG funds only pre-approved, packaged solutions from the official list. Bespoke development is usually supported through the EDG instead, subject to assessment."),
+   ("How long does a custom software project take?","A focused first version typically takes 6–12 weeks; a larger platform can run several months. Phasing the work lets you use the first release while the rest is built."),
+   ("Is custom software cheaper than SaaS over time?","Sometimes. SaaS is cheaper to start, but per-seat fees grow with your team. Custom software has a higher upfront cost and lower marginal cost — it pays off when the workflow is core to how you operate."),
+  ],
+  related=[("Custom Software Development","/custom-software-development/"),("CRM & Workflow Automation","/crm-workflow-automation/"),
+    ("AI & Business Automation","/ai-automation/"),("How we work","/how-we-work/")],
+  cta_title="Not sure whether to build or buy?",
+  cta_text="Tell us the workflow you're trying to fix. We'll tell you honestly whether it needs custom software, an integration, or configuring what you already have."),
+
+ dict(
+  path="/insights/whatsapp-business-app-vs-platform/", crumb="WhatsApp App vs Platform",
+  title="WhatsApp Business App vs Platform (2026) | M3VO",
+  desc="WhatsApp Business App vs the WhatsApp Business Platform (API): the real differences in team access, automation, integration and pricing — and how to choose in 2026.",
+  eyebrow="WhatsApp Business", published="14 September 2026", published_iso="2026-09-14",
+  h1="WhatsApp Business App vs WhatsApp Business Platform: what's the difference?",
+  dek="They share a name and little else. One is a free app for a single owner; the other runs team conversations at scale through software.",
+  answer_title="The short answer",
+  answer_paras=[
+    "The <strong>WhatsApp Business App</strong> is a free mobile app for a single owner or a very small team — one phone, manual replies, basic tools. The <strong>WhatsApp Business Platform</strong> (formerly called the WhatsApp Business API) is built for teams: it has no standalone app and is used through business software such as M3VO, so several staff can share one number, with automation, AI and CRM integration.",
+    "In short: the App is for messaging customers yourself; the Platform is for running customer conversations as a team, connected to your other systems. The Platform also uses per-message pricing, which the App does not."],
+  sections=[
+   ("Side-by-side comparison",f'''<div style="overflow-x:auto"><table {_TABLE}>
+    <thead><tr><th {_TH}>&nbsp;</th><th {_TH}>Business App</th><th {_TH}>Business Platform (API)</th></tr></thead>
+    <tbody>
+    <tr><td {_TD}><strong>Best for</strong></td><td {_TD}>Solo owner / micro business</td><td {_TD}>Teams, growing and larger businesses</td></tr>
+    <tr><td {_TD}><strong>How you access it</strong></td><td {_TD}>Download the app</td><td {_TD}>Through software / a provider (e.g. M3VO)</td></tr>
+    <tr><td {_TD}><strong>Staff on one number</strong></td><td {_TD}>Limited (linked devices, no shared inbox)</td><td {_TD}>Many, via a shared team inbox</td></tr>
+    <tr><td {_TD}><strong>Automation &amp; chatbots</strong></td><td {_TD}>Quick replies / away messages only</td><td {_TD}>Full automation and chatbots</td></tr>
+    <tr><td {_TD}><strong>AI-assisted replies</strong></td><td {_TD}>No</td><td {_TD}>Yes</td></tr>
+    <tr><td {_TD}><strong>CRM / system integration</strong></td><td {_TD}>No</td><td {_TD}>Yes</td></tr>
+    <tr><td {_TD}><strong>Official green tick</strong></td><td {_TD}>Unlikely</td><td {_TD}>Eligible</td></tr>
+    <tr><td {_TD}><strong>Cost</strong></td><td {_TD}>Free</td><td {_TD}>Per-message fees + software subscription</td></tr>
+    </tbody></table></div>'''),
+   ("WhatsApp Business App: what it is",'''<p>The Business App is free from the app store and tied to one number on a primary phone (with a few linked devices). It adds simple tools on top of normal WhatsApp: quick replies, away messages, a catalogue and labels. It's a good fit for a solo operator or a micro business handling a manageable number of chats.</p>
+    <p style="margin-top:12px">Its limits show up the moment more than one or two people are involved: there's no true shared team inbox, no real automation or integration, and broadcast is restricted. Once several staff are answering customers, visibility and accountability start to slip.</p>'''),
+   ("WhatsApp Business Platform (formerly the API): what it is",'''<p>The Platform is built for teams, and there's nothing to download — you connect to it through a Business Solution Provider or software such as M3VO. That software gives you a shared inbox where several agents work one number, with assignment, internal notes, conversation status, automation, chatbots, AI-assisted replies and integration into your CRM, ERP or appointment system. It also supports an official verified business profile (green-tick eligibility). Setup requires Meta business verification.</p>'''),
+   ("How Platform pricing works — and what changes on 1 October 2026",'''<p>The App is free. The Platform is not. Since <strong>1 July 2025</strong> Meta charges <strong>per message</strong> for template messages, replacing the older per-conversation model. Charges depend on the message category and the recipient's country:</p>
+    <ul class="reduce-list" style="columns:1;margin-top:10px">
+    <li><strong>Marketing</strong> templates — charged (the most expensive category).</li>
+    <li><strong>Utility</strong> templates (order updates, reminders) — charged, at a much lower rate.</li>
+    <li><strong>Authentication</strong> templates (OTPs) — charged.</li>
+    <li><strong>Service</strong> — replies inside the 24-hour window a customer opens are currently free, and incoming customer messages are always free.</li></ul>
+    <p style="margin-top:12px">Rates are set by Meta per recipient country on a quarterly rate card, and your provider adds a small per-message markup. <strong>From 1 October 2026</strong>, Meta begins charging for service messages and for utility templates sent inside the 24-hour service window — conversations that are free today. If you lean on WhatsApp for support, budget for that change.</p>
+    <p style="margin-top:12px;color:var(--muted)">One thing to keep separate: the software subscription you pay a provider (for the inbox, automation and integrations) is not the same as Meta's per-message fees. A reputable provider passes Meta's fees through at cost rather than marking them up.</p>'''),
+   ("Which should your business use?",'''<p><strong>Stay on the App</strong> if you're one or two people, volume is low, and you don't need automation or integration.</p>
+    <p style="margin-top:12px"><strong>Move to the Platform</strong> if several staff answer customers, you're losing visibility across phones, you want automation or AI, you need WhatsApp connected to your CRM or appointment system, or you send structured notifications like reminders and order updates.</p>'''),
+  ],
+  faqs=[
+   ("Can multiple employees use one WhatsApp number?","On the App, only in a limited way through linked devices, with no shared inbox or visibility. On the Platform, yes — several agents share one number through a team inbox, with assignment and full history."),
+   ("Is the WhatsApp Business Platform free?","No. You pay Meta per template message (rates vary by country and category) plus a software subscription to your provider. Incoming customer messages are free, and service replies inside the 24-hour window are free until 1 October 2026."),
+   ("Is there an app to download for the Platform?","No. The Platform has no consumer app — you use it through business software such as M3VO, which provides the inbox, automation and integrations."),
+   ("Can I keep my existing number?","Usually yes. An existing number can be migrated onto the Platform, though it can no longer be used in the WhatsApp Business App at the same time."),
+  ],
+  related=[("WhatsApp & Customer Communication","/whatsapp-business/"),("AI & Business Automation","/ai-automation/"),
+    ("CRM & Workflow Automation","/crm-workflow-automation/"),("Dental & Aesthetic Clinics","/dental-clinic-software/")],
+  cta_title="Outgrowing the WhatsApp Business App?",
+  cta_text="Tell us how your team handles customer messages today. We'll show you what the Platform changes — and what it costs."),
+]
+
 def build():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
@@ -1081,6 +1240,8 @@ def build():
     write("how-we-work/index.html", how_we_work())
     write("about/index.html", about())
     write("insights/index.html", insights())
+    for a in ARTICLES:
+        write(a["path"].strip("/")+"/index.html", article(a))
     write("contact/index.html", contact())
     write("404.html", notfound())
     # sitemap + robots
@@ -1088,6 +1249,7 @@ def build():
       "/system-integration/","/cloud-infrastructure/","/healthcare-software/","/dental-clinic-software/",
       "/industries/distribution/","/industries/ecommerce/","/industries/professional-services/","/industries/multi-location/",
       "/how-we-work/","/about/","/insights/","/contact/"]
+    urls += [a["path"] for a in ARTICLES]
     sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls: sm+=f'  <url><loc>{BASE}{u}</loc></url>\n'
     sm+='</urlset>\n'

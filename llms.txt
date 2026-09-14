@@ -36,6 +36,10 @@ Plans exclude Meta/BSP per-message fees, which are passed through at cost and it
 ### Positioning vs the category
 M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy and Gallabox. Differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
 
+## Guides
+- Custom software development cost in Singapore (2026) — https://m3vo.com/insights/how-much-does-custom-software-cost-singapore/
+- WhatsApp Business App vs WhatsApp Business Platform — https://m3vo.com/insights/whatsapp-business-app-vs-platform/
+
 ## How M3VO works
 Understand -> Identify -> Simplify -> Build -> Connect -> Improve. M3VO maps the actual workflow before building and connects existing systems (CRM, ERP/Odoo, e-commerce, payments, WhatsApp, email, accounting) rather than replacing what already works. https://m3vo.com/how-we-work/
 

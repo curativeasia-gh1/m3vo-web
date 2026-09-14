@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """M3VO static site generator -> dist/ (Cloudflare Pages ready) + standalone index for preview."""
-import os, json, shutil, html
+import os, json, shutil, html, urllib.parse
 
 BASE = "https://m3vo.com"
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -122,6 +122,13 @@ ENTITY_LONG = ("M3VO is a Singapore-based software development and business auto
   "WhatsApp customer communication systems, CRM automation and API integrations for SMEs and growing "
   "businesses in Singapore and across Asia.")
 
+WA_NUMBER  = "6581946188"
+WA_DISPLAY = "+65 8194 6188"
+WA_URL     = "https://wa.me/" + WA_NUMBER + "?text=" + urllib.parse.quote("Hi M3VO, here's what's slowing us down: ")
+def wa_svg(cls=""):
+    c = f' class="{cls}"' if cls else ""
+    return (f'<svg{c} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8.97h.01A7.94 7.94 0 0 0 17.6 6.32zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.49.65.66-2.43-.16-.25a6.59 6.59 0 1 1 12.22-3.5 6.6 6.6 0 0 1-6.63 6.59zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.43.05a5.4 5.4 0 0 1-1.59-.98 6 6 0 0 1-1.1-1.37c-.12-.2-.01-.31.09-.4.09-.09.2-.23.29-.35.1-.12.13-.2.2-.34.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.34l-.37-.01a.72.72 0 0 0-.52.24c-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2.01.1.13 1.37 2.1 3.32 2.94.46.2.83.32 1.11.41.47.15.9.13 1.23.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.85.12-.94-.05-.08-.18-.13-.38-.23z"/></svg>')
+
 # ---------------------------------------------------------------- icons
 I = {
  "ai":'<path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6zM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/>',
@@ -157,6 +164,7 @@ I = {
  "menu":'<path d="M4 7h16M4 12h16M4 17h16"/>',
  "target":'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/>',
  "layers":'<path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/>',
+ "mail":'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
 }
 def ic(name, cls=""):
     c = f' class="{cls}"' if cls else ""
@@ -224,7 +232,9 @@ def footer():
     return f'''<footer class="site-footer"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">{brand()}
-      <p>{ENTITY_LONG}</p></div>
+      <p>{ENTITY_LONG}</p>
+      <a class="foot-email" href="mailto:hello@m3vo.com">{ic('mail')} hello@m3vo.com</a>
+      <a class="foot-email" href="{WA_URL}" target="_blank" rel="noopener" style="margin-top:10px">{wa_svg()} {WA_DISPLAY}</a></div>
     <div class="fcol"><h4>Solutions</h4>{sol}</div>
     <div class="fcol"><h4>Industries</h4>{ind}</div>
     <div class="fcol"><h4>Company</h4>
@@ -334,6 +344,7 @@ def page(title, desc, path, body, jsonld=None, inline=False):
 {header()}
 <main>{body}</main>
 {footer()}
+<a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Chat with M3VO on WhatsApp">{wa_svg()}</a>
 {js}</body></html>'''
 
 # ================================================================ HOME
@@ -970,8 +981,11 @@ def contact():
         <div><span class="eyebrow">Contact</span>
           <h1 style="max-width:16ch">What is slowing your business down?</h1>
           <p class="lead" style="margin-top:16px;color:var(--body)">You don't need to prepare a software specification. Tell us what's happening — that's enough to start.</p>
-          <div class="prompts">{prompts}</div>
-          <p style="margin-top:20px;color:var(--body)">Prefer email? Write to <a class="textlink" href="mailto:hello@m3vo.com">hello@m3vo.com</a></p></div>
+          <div class="contact-methods">
+            <a class="contact-email" href="mailto:hello@m3vo.com"><span class="ce-ic">{ic('mail')}</span><span><span class="ce-l">Email us directly</span><span class="ce-v">hello@m3vo.com</span></span></a>
+            <a class="contact-email wa" href="{WA_URL}" target="_blank" rel="noopener"><span class="ce-ic">{wa_svg()}</span><span><span class="ce-l">Chat on WhatsApp</span><span class="ce-v">{WA_DISPLAY}</span></span></a>
+          </div>
+          <div class="prompts">{prompts}</div></div>
         <div class="fr-media"><div class="panel" style="padding:26px">{form}</div></div>
       </div></div></section>'''
     ld=[breadcrumb_ld([("Home","/"),("Contact","/contact/")]),

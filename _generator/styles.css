@@ -378,6 +378,25 @@ p{margin:0}
 :root[data-theme="dark"] .form-err{color:#ffb4a8;background:#2a1512;border-color:#5a241d}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .form-err{color:#ffb4a8;background:#2a1512;border-color:#5a241d}}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-methods{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 2px}
+.contact-email{display:inline-flex;align-items:center;gap:14px;padding:14px 18px;
+  border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:border-color .18s ease,box-shadow .18s ease}
+.contact-email:hover{border-color:var(--navy);box-shadow:var(--shadow)}
+.contact-email.wa:hover{border-color:var(--green-600)}
+.contact-email .ce-ic{flex:0 0 auto;width:44px;height:44px;border-radius:11px;background:var(--navy-050);
+  color:var(--navy);display:grid;place-items:center}
+.contact-email .ce-ic svg{width:22px;height:22px}
+.contact-email.wa .ce-ic{background:var(--green-050);color:var(--green-600)}
+.contact-email .ce-l{display:block;font-size:.82rem;color:var(--muted)}
+.contact-email .ce-v{display:block;font-family:var(--ff-head);font-weight:600;font-size:1.12rem;color:var(--ink);letter-spacing:-.01em}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;border-radius:50%;
+  background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.18);
+  transition:transform .18s ease,box-shadow .18s ease}
+.wa-float svg{width:30px;height:30px}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.26)}
+.wa-float:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media (max-width:640px){.wa-float{right:16px;bottom:16px;width:52px;height:52px}}
+@media (prefers-reduced-motion:reduce){.wa-float{transition:none}}
 .form-ok .ok-ic{width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;
   display:grid;place-items:center;margin:0 auto 14px}
 .form-ok .ok-ic svg{width:28px;height:28px}
@@ -397,6 +416,12 @@ p{margin:0}
 :root[data-theme="dark"] .foot-brand .brand{color:var(--ink)}
 .foot-brand p{color:rgba(255,255,255,.62);max-width:34ch;margin-top:14px;font-size:.95rem;line-height:1.6}
 :root[data-theme="dark"] .foot-brand p{color:var(--muted)}
+.foot-email{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:#fff;
+  font-family:var(--ff-head);font-weight:600;font-size:.98rem;transition:color .15s}
+.foot-email svg{width:18px;height:18px}
+.foot-email:hover{color:var(--green)}
+:root[data-theme="dark"] .foot-email{color:var(--ink)}
+:root[data-theme="dark"] .foot-email:hover{color:var(--navy)}
 .fcol h4{color:#fff;font-size:.95rem;margin-bottom:14px}
 :root[data-theme="dark"] .fcol h4{color:var(--ink)}
 .fcol a{display:block;padding:6px 0;color:rgba(255,255,255,.68);font-size:.94rem;transition:color .15s}

@@ -319,6 +319,14 @@ def page(title, desc, path, body, jsonld=None, inline=False):
                "%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20fill='%23fff'%20"
                "text-anchor='middle'%3Em%3Ctspan%20fill='%2300be64'%3E3%3C/tspan%3E%3C/text%3E%3C/svg%3E")
     return f'''<!doctype html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S5TTD4R4HT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', 'G-S5TTD4R4HT');
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
 new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],

@@ -319,6 +319,13 @@ def page(title, desc, path, body, jsonld=None, inline=False):
                "%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20fill='%23fff'%20"
                "text-anchor='middle'%3Em%3Ctspan%20fill='%2300be64'%3E3%3C/tspan%3E%3C/text%3E%3C/svg%3E")
     return f'''<!doctype html><html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+}})(window,document,'script','dataLayer','GTM-5BTJXR2M');</script>
+<!-- End Google Tag Manager -->
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{html.escape(desc, quote=True)}">
@@ -341,6 +348,10 @@ def page(title, desc, path, body, jsonld=None, inline=False):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 {css}{lds}</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BTJXR2M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 {header()}
 <main>{body}</main>
 {footer()}

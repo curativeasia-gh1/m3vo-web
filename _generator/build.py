@@ -307,8 +307,9 @@ def breadcrumb_ld(items):
         el.append(d)
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":el}
 
-def page(title, desc, path, body, jsonld=None, inline=False):
+def page(title, desc, path, body, jsonld=None, inline=False, noindex=False):
     canonical = BASE + path
+    robots_meta = '\n<meta name="robots" content="noindex, follow">' if noindex else ""
     css = f"<style>{CSS}</style>" if inline else '<link rel="stylesheet" href="/assets/styles.css">'
     js  = f"<script>{JS}</script>" if inline else '<script src="/assets/app.js" defer></script>'
     lds = ""
@@ -337,7 +338,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{html.escape(desc, quote=True)}">
-<link rel="canonical" href="{canonical}">
+<link rel="canonical" href="{canonical}">{robots_meta}
 <meta name="theme-color" content="#183591">
 <link rel="icon" href="{favicon}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="M3VO">
@@ -372,7 +373,7 @@ HOME_DESC="M3VO builds custom software, AI automation, WhatsApp workflows and co
 HOME_BODY=""; HOME_LD=[]
 def home(inline=False):
     hero_flow = f'''<div class="panel" aria-label="Example customer workflow">
-      <div class="panel-head"><span class="dots"><i></i><i></i><i></i></span><span class="pt">Customer workflow · live</span></div>
+      <div class="panel-head"><span class="dots"><i></i><i></i><i></i></span><span class="pt">Example customer workflow</span></div>
       <div class="msg"><span class="av">JL</span><span><span class="mn">New WhatsApp enquiry</span>
         <span class="mt">"Hi, do you have the 2mm implant kit in stock? Need a quote for 40 units."</span></span></div>
       <div class="flow">
@@ -527,15 +528,15 @@ def home(inline=False):
     body = hero+what+problem+solutions+diff+industries+aiq+process+why+faq+final
     ld = [
       {"@context":"https://schema.org","@type":"Organization","name":"M3VO","alternateName":"Mevo Tech","url":BASE+"/",
-       "logo":BASE+"/assets/m3vo-logo.png","image":BASE+"/assets/og-image.png","email":"hello@m3vo.com","description":ENTITY_LONG,
+       "logo":BASE+"/assets/m3vo-logo.png","image":BASE+"/assets/og-image.png","email":"hello@m3vo.com","telephone":WA_DISPLAY,"@id":BASE+"/#organization","description":ENTITY_LONG,
        "areaServed":["Singapore","Southeast Asia","Asia"],
        "knowsAbout":["AI agents","Agentic AI","AI software development","Custom software development","SaaS development",
           "Business automation","Workflow automation","CRM automation","WhatsApp Business automation",
           "API integration","Healthcare software"],
-       "contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"hello@m3vo.com","url":BASE+"/contact/","areaServed":"SG"}},
+       "contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":WA_DISPLAY,"email":"hello@m3vo.com","url":BASE+"/contact/","areaServed":"SG"}},
       {"@context":"https://schema.org","@type":"WebSite","name":"M3VO","url":BASE+"/","publisher":{"@type":"Organization","name":"M3VO"}},
       {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQS]},
+        {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]},
     ]
     global HOME_BODY, HOME_LD
     HOME_BODY, HOME_LD = body, ld
@@ -662,45 +663,31 @@ LEAVES["/custom-software-development/"] = dict(
   cta_title="Talk to M3VO about your workflow.",
   cta_text="You don't need a specification. Describe how the work happens today and we'll propose what to build.")
 
-WA_TIERS = [
- ("Starter","$19 / seat / mo",["Shared WhatsApp inbox","Contact profiles &amp; canned replies","Basic automation rules","No contact / MAC tax"]),
- ("Growth","$49 / seat / mo",["Everything in Starter","No-code automation flow builder","AI copilot included","Lightweight CRM / pipeline view"]),
- ("Scale","$99 / seat / mo",["Everything in Growth","WhatsApp + Instagram + web","Priority support","Usage-based billing dashboard"]),
-]
 WA_EXTRA = (
  '<section class="section"><div class="wrap">'
- '<span class="eyebrow">Pricing</span>'
- '<h2 class="measure">Priced per seat. Never per contact.</h2>'
- '<p class="lead measure" style="margin:14px 0 8px;color:var(--body)">Automation and an AI copilot are included from the entry tier — the kind of features other tools gate behind $79+/mo plans. Every Meta/BSP conversation fee is itemised at cost, never marked up. That is the "shows its receipts" part.</p>'
- '<div class="sol-grid" style="margin-top:30px">'
- + "".join(f'<div class="sol"><h3>{t}</h3><p style="font-family:var(--ff-head);font-weight:600;color:var(--green-600);margin:2px 0 14px;font-size:1.05rem">{p}</p>{tick_list(fs)}</div>' for t,p,fs in WA_TIERS)
- + '</div>'
- '<p style="margin-top:18px;color:var(--muted);font-size:.9rem">Prices in USD, per seat. Meta/BSP conversation fees are billed separately at cost. Confirm current rates before publishing.</p>'
- '</div></section>'
- '<section class="section section--wash"><div class="wrap"><span class="eyebrow">The category, side by side</span>'
- '<h2 class="measure">Everything the $79+/mo tier gives you elsewhere — included from $19.</h2>'
- '<p class="lead measure" style="margin:14px 0 20px;color:var(--body)">Most WhatsApp platforms add a per-contact or monthly-active-conversation charge on top of Meta\'s own fees. M3VO charges per seat and passes Meta/BSP fees through at cost.</p>'
- '<div class="chips">' + "".join(f'<span class="chip">{c}</span>' for c in ["vs Wati","vs respond.io","vs SleekFlow","vs Interakt","vs Trengo"]) + '</div>'
+ '<span class="eyebrow">Project scope</span>'
+ '<h2 class="measure">Get a quote for your WhatsApp workflow.</h2>'
+ '<p class="lead measure" style="margin:14px 0 20px;color:var(--body)">Tell us your team size, business numbers, channels and integration needs. We will confirm the proposed features, implementation scope and recurring charges in your quote.</p>'
+ '<a class="btn btn-primary" href="/contact/">Request a quote</a>'
  '</div></section>'
 )
 WA_LD = [{
  "@context":"https://schema.org","@type":"SoftwareApplication","name":"M3VO",
  "applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS, Android",
  "url":BASE+"/whatsapp-business/","image":BASE+"/assets/og-image.png",
- "description":"Shared WhatsApp inbox and customer communication platform with team assignment, automation, an AI copilot and per-seat pricing. Built on the official WhatsApp Business Platform.",
- "offers":{"@type":"Offer","priceCurrency":"USD","price":"19","description":"From $19 per seat per month. Meta/BSP conversation fees itemised at cost.","url":BASE+"/whatsapp-business/"},
+ "description":"Shared WhatsApp inbox and customer communication platform with team assignment, automation, an AI copilot and connected workflows. Built on the official WhatsApp Business Platform.",
  "provider":{"@type":"Organization","name":"M3VO","url":BASE+"/"}
 }]
 LEAVES["/whatsapp-business/"] = dict(
   path="/whatsapp-business/", icon="chat", service_type="WhatsApp Business automation",
-  title="WhatsApp Business Automation, Shared Inbox & Pricing | M3VO",
-  desc="M3VO is a shared WhatsApp inbox with team assignment, automation and an AI copilot — priced per seat from $19/mo, with Meta/BSP fees itemised at cost, not marked up.",
+  title="WhatsApp Business Automation & Shared Inbox | M3VO",
+  desc="M3VO connects WhatsApp conversations, team assignment, automation and CRM workflows. Contact us to scope your requirements and request a quote.",
   crumbs=[("Home","/"),("Solutions","/#solutions"),("WhatsApp & Customer Communication",None)],
-  h1="The WhatsApp inbox that shows its receipts.",
-  lead="A shared WhatsApp and omnichannel inbox for your whole team — with assignment, automation and an AI copilot. Priced per seat, with every Meta/BSP fee itemised at cost rather than marked up.",
+  h1="A shared WhatsApp inbox for your team.",
+  lead="A shared WhatsApp and omnichannel inbox for your whole team — with assignment, automation and an AI copilot. Tell us your workflow and we will confirm the features and scope in a quote.",
   answer_title="What is a WhatsApp shared inbox?",
   answer_paras=["A WhatsApp shared inbox lets a whole team manage customer conversations from one business number — with assignment, internal notes, status, automation and history — instead of messages living on one employee's phone.",
-    "M3VO builds this on the official WhatsApp Business Platform via a licensed BSP, and prices it per seat (never per contact), passing Meta's conversation fees through at cost. It suits businesses that have outgrown the standard WhatsApp Business App."],
+    "M3VO builds this on the official WhatsApp Business Platform via a licensed BSP. It suits businesses that have outgrown the standard WhatsApp Business App."],
   chain_eyebrow="The workflow", chain_title="From customer message to completed follow-up",
   chain=[("chat","Enquiry",False),("ai","AI assist",True),("route","Route & assign",False),("users","Reply",False),("cal","Appointment",False),("crm","CRM sync",False),("bell","Follow-up",False)],
   build_eyebrow="What M3VO can support", build_title="A structured way to run business conversations.",
@@ -710,7 +697,7 @@ LEAVES["/whatsapp-business/"] = dict(
   when_eyebrow="Built for", when_title="Businesses that use WhatsApp every day.",
   when_intro="When conversations affect sales, appointments and customer service, they shouldn't depend on one employee's phone.",
   when_list=["Customers message different staff and things get lost","No visibility for managers","Follow-ups depend on memory",
-    "You run multiple numbers or locations","You want AI to draft or triage replies","You're tired of a per-contact pricing tax"],
+    "You run multiple numbers or locations","You want AI to draft or triage replies","You need conversations connected to your CRM"],
   extra_html=WA_EXTRA, extra_ld=WA_LD,
   related=[("AI & Business Automation","/ai-automation/"),("CRM & Workflow Automation","/crm-workflow-automation/"),
     ("Dental & Aesthetic Clinics","/dental-clinic-software/"),("Distribution & B2B","/industries/distribution/")],
@@ -935,7 +922,7 @@ def about():
           <p style="margin-top:16px;color:var(--body)">We understand that small and growing businesses can't spend years implementing enterprise systems. Technology needs to deliver practical value, be understandable, work with the team, and solve a real problem. That philosophy shapes everything we build.</p></div>
         <div class="fr-media">{tick_list(["Understand the business","Identify the friction","Simplify the process","Build what is needed","Connect what already works","Keep improving"])}</div>
       </div></div></section>
-      {answer_section("Where did M3VO start?", ["M3VO started as a shared WhatsApp inbox — bringing scattered conversations into one team workspace with clear, honest pricing. That is still a core product. But the inbox is where we started, not where the problem ends: the same friction shows up across CRM, operations and reporting, which is why M3VO now spans software, automation, AI and integration.","Built by Mevo Tech."])}
+      {answer_section("Where did M3VO start?", ["M3VO started as a shared WhatsApp inbox — bringing scattered conversations into one team workspace with clear, honest pricing. That is still a core product. But the inbox is where we started, not where the problem ends: the same friction shows up across CRM, operations and reporting, which is why M3VO now spans software, automation, AI and integration.","M3VO is built by Mevo Tech. The shared WhatsApp inbox is a product within M3VO’s broader software and automation offering. For product enquiries or project scoping, email hello@m3vo.com or contact us on WhatsApp at +65 8194 6188."])}
       {answer_section("Where is M3VO based?", ["M3VO is based in Singapore and develops software for businesses operating locally and across international markets.","We're particularly suited to growing businesses across Singapore and Southeast Asia that need flexible systems capable of adapting to different teams, markets and workflows."])}
       {cta_band("Let's make your business easier to run.","Tell us what slows you down. We'll help decide whether it should be simplified, automated, connected or rebuilt.")}'''
     ld=[breadcrumb_ld([("Home","/"),("About","/about/")]),
@@ -967,9 +954,9 @@ def insights():
     body=f'''<section class="section section--tight" style="padding-top:26px">{crumbs([("Home","/"),("Resources",None)])}
       <div class="wrap" style="margin-top:8px"><span class="eyebrow">Resources</span>
       <h1 style="max-width:24ch">Practical ideas for running a better business with software.</h1>
-      <p class="lead measure" style="margin-top:18px;color:var(--body)">Not a generic tech blog. These are the real questions business owners ask — answered clearly. New guides are published here regularly.</p></div></section>
+      <p class="lead measure" style="margin-top:18px;color:var(--body)">Practical guides to software decisions, project scope and business workflows. Start with the published guides below or contact us about your own situation.</p></div></section>
       {pubs}
-      <section class="section" style="padding-top:0"><div class="wrap"><span class="eyebrow">More topics we cover</span><div class="sol-grid" style="margin-top:14px">{cards}</div></div></section>
+      <section class="section" style="padding-top:0"><div class="wrap"><span class="eyebrow">Questions to discuss with M3VO</span><div class="sol-grid" style="margin-top:14px">{cards}</div></div></section>
       {cta_band("Have a question we haven't covered?","Ask it directly — describe your situation and we'll give you a straight answer.")}'''
     return page("Resources & Insights | M3VO","Practical guides on AI for SMEs, custom software, WhatsApp Business, business automation and healthcare technology from M3VO.",
         "/insights/", body, [breadcrumb_ld([("Home","/"),("Resources","/insights/")])])
@@ -1023,12 +1010,12 @@ def notfound():
     body=f'''<section class="section" style="text-align:center;padding:120px 0"><div class="wrap">
       <h1>Page not found</h1><p class="lead" style="margin:16px auto 26px;max-width:40ch;color:var(--body)">That page doesn't exist — but tell us what you were looking for and we'll point you the right way.</p>
       <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="/">Back to home</a><a class="btn btn-ghost" href="/contact/">Contact</a></div></div></section>'''
-    return page("Page not found | M3VO","The page you're looking for doesn't exist.","/404.html", body, [])
+    return page("Page not found | M3VO","The page you're looking for doesn't exist.","/404.html", body, [], noindex=True)
 
 # ================================================================ build
 LLMS = """# M3VO
 
-> M3VO is a Singapore-based software development and business automation company. It builds custom software, SaaS platforms, AI automation, WhatsApp customer communication systems, CRM workflows and API integrations for SMEs and growing businesses in Singapore and across Asia. M3VO starts with the business problem — what is slowing work down — then decides what to simplify, connect, automate or rebuild. Its flagship product is a shared WhatsApp inbox with automation and an AI copilot, priced per seat.
+> M3VO is a Singapore-based software development and business automation company. It builds custom software, SaaS platforms, AI automation, WhatsApp customer communication systems, CRM workflows and API integrations for SMEs and growing businesses in Singapore and across Asia. M3VO starts with the business problem — what is slowing work down — then decides what to simplify, connect, automate or rebuild. Its flagship product is a shared WhatsApp inbox with automation and an AI copilot.
 
 Company: M3VO (built by Mevo Tech)
 Contact: hello@m3vo.com
@@ -1052,17 +1039,10 @@ Website: https://m3vo.com/
 - Multi-location businesses — https://m3vo.com/industries/multi-location/
 
 ## Flagship product: M3VO WhatsApp shared inbox
-A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Priced per seat, never per contact; Meta/BSP conversation fees are itemised at cost, never marked up.
+A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Features and implementation scope are agreed in a project quote.
 
-### Pricing (USD/month, per seat — illustrative, confirm current rates at https://m3vo.com/whatsapp-business/)
-- Starter — $19/mo: shared WhatsApp inbox, contact profiles & canned replies, basic automation, no contact/MAC tax
-- Growth — $49/mo: everything in Starter + no-code automation flow builder, AI copilot, lightweight CRM/pipeline
-- Scale — $99/mo: everything in Growth + multi-channel (WhatsApp + Instagram + web), priority support, usage-based billing dashboard
-
-Plans exclude Meta/BSP per-message fees, which are passed through at cost and itemised separately. Pricing is based on team size, not contact-list size.
-
-### Positioning vs the category
-M3VO competes with respond.io, Wati, SleekFlow, Kommo, Trengo, Interakt, AiSensy and Gallabox. Differentiation: automation and AI are included at the entry tier instead of gated behind a $79–$159/mo plan, and pricing is per seat instead of per contact / monthly-active-contact.
+### Quotes
+Contact M3VO with your team size, business numbers, channels and integration needs. M3VO confirms the proposed features, implementation scope and recurring charges in a quote. No public pricing tiers are listed.
 
 ## Guides
 - Custom software development cost in Singapore (2026) — https://m3vo.com/insights/how-much-does-custom-software-cost-singapore/
@@ -1081,7 +1061,7 @@ Understand -> Identify -> Simplify -> Build -> Connect -> Improve. M3VO maps the
 
 ## Key links
 - Home: https://m3vo.com/
-- WhatsApp product & pricing: https://m3vo.com/whatsapp-business/
+- WhatsApp product: https://m3vo.com/whatsapp-business/
 - How we work: https://m3vo.com/how-we-work/
 - Resources: https://m3vo.com/insights/
 - About: https://m3vo.com/about/
@@ -1130,14 +1110,14 @@ ARTICLES = [
  dict(
   path="/insights/how-much-does-custom-software-cost-singapore/", crumb="Cost of custom software",
   title="Custom Software Development Cost in Singapore (2026) | M3VO",
-  desc="What custom software really costs in Singapore in 2026 — typical price ranges by project size, what drives the cost, and how PSG and EDG grants can offset up to 50%.",
-  eyebrow="Custom software", published="14 September 2026", published_iso="2026-09-14",
+  desc="How to budget for custom software in Singapore: scope, integrations, ongoing costs and official grant guidance, including the September 2026 EDGE transition.",
+  eyebrow="Custom software", published="14 September 2026", published_iso="2026-09-14", updated="18 September 2026", updated_iso="2026-09-18",
   h1="How much does custom software cost in Singapore?",
-  dek="A straight answer on price ranges, what actually drives the cost, and how government grants change the maths for SMEs.",
+  dek="What drives a software quote, how to compare project scopes, and where to check current Singapore grant eligibility.",
   answer_title="The short answer",
   answer_paras=[
-    "In Singapore, custom software typically costs <strong>S$20,000–S$40,000</strong> for a simple internal tool, <strong>S$50,000–S$150,000</strong> for a mid-sized business system, and <strong>S$150,000 and up</strong> for a complex platform or SaaS product. Senior developer time through local agencies runs roughly S$150–S$240 an hour.",
-    "The real figure depends on scope, not a price list — two projects described the same way can differ fivefold once you count integrations, users, data migration and compliance. Eligible SMEs can offset up to 50% of qualifying cost through government grants, covered below."],
+    "There is no single reliable price for a custom software project. A useful quote needs a defined workflow, user roles, integrations, data migration requirements and acceptance criteria.",
+    "Start by scoping a focused first release, then ask for development, hosting, third-party services and ongoing support to be priced separately. The scope checklist below helps you compare proposals on the same basis."],
   sections=[
    ("What actually drives the price",'''<p>Custom software is priced by the work needed to build and run it, so the cost follows a handful of variables:</p>
     <ul class="reduce-list" style="columns:1;margin-top:10px">
@@ -1148,32 +1128,27 @@ ARTICLES = [
     <li><strong>Design and UX</strong> — a rough internal tool costs less than a polished customer-facing product.</li>
     <li><strong>Compliance and security</strong> — PDPA-aligned data handling, audit trails and access control add scope where they apply.</li>
     <li><strong>Ongoing costs</strong> — hosting, maintenance and support recur monthly and are separate from the build.</li></ul>'''),
-   ("Typical price ranges in Singapore (2026)",f'''<div style="overflow-x:auto"><table {_TABLE}>
-    <thead><tr><th {_TH}>Project type</th><th {_TH}>Typical range</th><th {_TH}>What it usually includes</th></tr></thead>
+   ("Scope checklist for a comparable quote",f'''<div style="overflow-x:auto"><table {_TABLE}>
+    <thead><tr><th {_TH}>Project type</th><th {_TH}>Define before requesting a quote</th></tr></thead>
     <tbody>
-    <tr><td {_TD}><strong>Simple internal tool</strong></td><td {_TD}>S$20k–S$40k</td><td {_TD}>One focused workflow, a handful of users, basic reporting, light or no integration.</td></tr>
-    <tr><td {_TD}><strong>Business system</strong></td><td {_TD}>S$50k–S$150k</td><td {_TD}>Multiple roles and workflows, a few integrations, dashboards, real user management.</td></tr>
-    <tr><td {_TD}><strong>Platform or SaaS product</strong></td><td {_TD}>S$150k+</td><td {_TD}>Customer or partner logins, billing, multiple integrations, higher design and security bar.</td></tr>
+    <tr><td {_TD}><strong>Internal tool</strong></td><td {_TD}>The workflow, users, access roles, reports and systems it must connect to.</td></tr>
+    <tr><td {_TD}><strong>Business system</strong></td><td {_TD}>Department handovers, approvals, integrations, migration volume and reporting needs.</td></tr>
+    <tr><td {_TD}><strong>Platform or SaaS product</strong></td><td {_TD}>Customer access, billing, tenant isolation, support requirements and expected usage.</td></tr>
     </tbody></table></div>
-    <p style="margin-top:14px;color:var(--muted)">Ranges are indicative of the Singapore market in 2026, not a quote. Hosting, maintenance and support are ongoing and priced separately from the build.</p>'''),
+    <p style="margin-top:14px;color:var(--muted)">Ask each provider to state assumptions, exclusions, acceptance criteria and recurring charges. These scopes are a comparison checklist, not a market price survey or a quote.</p>'''),
    ("How you'll be quoted",'''<p>Three pricing models are common, and the right one depends on how well-defined the work is:</p>
     <ul class="reduce-list" style="columns:1;margin-top:10px">
     <li><strong>Fixed price</strong> — best when the scope is clear. Predictable, but changes mid-project mean change requests.</li>
     <li><strong>Time and materials</strong> — best when the scope will evolve. You pay for time used and keep flexibility.</li>
     <li><strong>Retainer</strong> — for ongoing improvement once the system is live and being used.</li></ul>
     <p style="margin-top:12px">A sensible middle path is a fixed price for a tightly-scoped first phase, then a retainer as the system grows with real usage.</p>'''),
-   ("Can a grant reduce the cost? PSG vs EDG",f'''<p>Two Enterprise Singapore grants come up most for software, and they fund very different things:</p>
-    <div style="overflow-x:auto"><table {_TABLE}>
-    <thead><tr><th {_TH}>&nbsp;</th><th {_TH}>PSG (Productivity Solutions Grant)</th><th {_TH}>EDG (Enterprise Development Grant)</th></tr></thead>
-    <tbody>
-    <tr><td {_TD}><strong>Funds</strong></td><td {_TD}>Pre-approved, packaged IT solutions from the official list</td><td {_TD}>Bespoke transformation projects, including custom builds</td></tr>
-    <tr><td {_TD}><strong>Support (SME)</strong></td><td {_TD}>Up to 50%</td><td {_TD}>Up to 50% of qualifying costs</td></tr>
-    <tr><td {_TD}><strong>Cap</strong></td><td {_TD}>S$30,000 per company per financial year</td><td {_TD}>Assessed per project (no fixed catalogue cap)</td></tr>
-    <tr><td {_TD}><strong>Covers</strong></td><td {_TD}>Licence / subscription of the approved solution</td><td {_TD}>Consultancy, software/equipment and internal manpower</td></tr>
-    <tr><td {_TD}><strong>Custom build?</strong></td><td {_TD}>Usually no</td><td {_TD}>Yes</td></tr>
-    </tbody></table></div>
-    <p style="margin-top:14px">Both require a Singapore-registered business with at least 30% local shareholding, and you must apply <em>before</em> committing spend. Approval is assessed, never automatic — treat a grant as a possible offset, not a discount you can bank on. A grant advisor or the Business Grants Portal is the right place to confirm your position.</p>
-    <p style="margin-top:12px;color:var(--muted)">Note: a new consolidated grant, EDGE, was announced at Budget 2026 to merge EDG, PSG and MRA, with launch expected in the second half of 2026 and support reportedly capped around S$100,000 a year. Figures are provisional — check the current position before you plan around it.</p>'''),
+   ("Can a grant reduce the cost?",'''<p>Check the programme and the specific project before including a grant in your budget. Approval is not automatic, and this guide does not establish that M3VO or its products are pre-approved.</p>
+    <p style="margin-top:12px"><strong>Checked 18 September 2026:</strong> Enterprise Singapore says EDG, MRA and PSG cease on 29 September 2026. From 30 September, new business-grant support moves to EDGE. Existing submissions and projects continue to be processed.</p>
+    <ul class="reduce-list" style="columns:1;margin-top:12px">
+    <li><a href="https://www.enterprisesg.gov.sg/financial-support/productivity-solutions-grant">PSG guidance</a>: pre-approved productivity solutions and equipment; check the official solution list.</li>
+    <li><a href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">EDG guidance</a>: qualifying transformation projects, assessed on scope, outcomes and provider competency.</li>
+    <li><a href="https://www.enterprisesg.gov.sg/financial-support/edge-grant">EDGE guidance</a>: current application routes, eligibility and support conditions for the replacement scheme.</li></ul>
+    <p style="margin-top:12px">Check the official rules before signing a contract, paying a deposit or starting work. Budget for the project without assuming a grant award.</p>'''),
    ("Is custom cheaper than off-the-shelf?",'''<p>Usually not upfront. Off-the-shelf SaaS is cheaper to start and faster to switch on. Custom software earns its cost when off-the-shelf genuinely can't match how you work, when per-seat SaaS fees keep climbing with your team, or when the software itself is a competitive advantage. If none of those apply, the cheaper answer is often to <strong>integrate</strong> the tools you already have rather than build from scratch.</p>'''),
    ("How to keep the cost sensible",'''<ul class="reduce-list" style="columns:1;margin-top:2px">
     <li>Start with the single most painful workflow — not everything at once.</li>
@@ -1182,9 +1157,9 @@ ARTICLES = [
     <li>Fix the scope for phase one so the first number is predictable.</li></ul>'''),
   ],
   faqs=[
-   ("What's the minimum realistic budget for custom software?","For a genuinely custom build, plan for at least S$15,000–S$20,000. Below that, you're usually better served configuring an off-the-shelf tool or a no-code platform."),
-   ("Can I use the PSG grant for a custom build?","Generally no. PSG funds only pre-approved, packaged solutions from the official list. Bespoke development is usually supported through the EDG instead, subject to assessment."),
-   ("How long does a custom software project take?","A focused first version typically takes 6–12 weeks; a larger platform can run several months. Phasing the work lets you use the first release while the rest is built."),
+   ("What's the minimum realistic budget for custom software?","A minimum budget depends on the agreed scope. Ask for a quote for one focused workflow, and compare it with configuring an existing product or a no-code platform."),
+   ("Can I use the PSG grant for a custom build?","PSG covers pre-approved solutions rather than an unrestricted custom build. Enterprise Singapore says PSG and EDG cease on 29 September 2026, with new support moving to EDGE from 30 September. Check the official programme guidance before committing to a project."),
+   ("How long does a custom software project take?","The delivery schedule depends on scope, integrations, data readiness and review cycles. Agree milestones and acceptance criteria after discovery; a phased release can let your team use the first workflow while later work continues."),
    ("Is custom software cheaper than SaaS over time?","Sometimes. SaaS is cheaper to start, but per-seat fees grow with your team. Custom software has a higher upfront cost and lower marginal cost — it pays off when the workflow is core to how you operate."),
   ],
   related=[("Custom Software Development","/custom-software-development/"),("CRM & Workflow Automation","/crm-workflow-automation/"),
@@ -1278,7 +1253,7 @@ def build():
     # Cloudflare Pages Function for the contact form
     write("functions/api/contact.js", CONTACT_FN)
     # standalone preview (inlined homepage) — HOME_BODY/HOME_LD were set when home() ran above
-    write("preview-standalone.html", page(HOME_TITLE, HOME_DESC, "/", HOME_BODY, HOME_LD, inline=True))
+    write("preview-standalone.html", page(HOME_TITLE, HOME_DESC, "/", HOME_BODY, HOME_LD, inline=True, noindex=True))
     return urls
 
 if __name__=="__main__":

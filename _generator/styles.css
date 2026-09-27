@@ -147,6 +147,12 @@ p{margin:0}
 .nav-item{position:relative}
 .nav-link{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:9px;
   font-weight:500;font-size:.98rem;color:var(--body);cursor:pointer;transition:background .15s,color .15s}
+.nav-link{white-space:nowrap}
+/* Tighter desktop nav between the mobile switch and wide screens */
+@media (max-width:1240px){
+  .nav-link{padding:9px 9px;font-size:.94rem}
+  .nav-right .btn-ghost{display:none}
+}
 .nav-link:hover,.nav-link[aria-expanded="true"]{color:var(--ink);background:var(--wash-2)}
 .nav-link .chev{width:15px;height:15px;transition:transform .18s ease}
 .nav-link[aria-expanded="true"] .chev{transform:rotate(180deg)}
@@ -439,7 +445,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   outline:2px solid var(--green);outline-offset:2px;border-radius:6px}
 
 /* responsive nav switch */
-@media (max-width:940px){
+@media (max-width:1080px){
   .nav-links{display:none}
   .nav-right .btn:not(.hamburger){display:none}
   .hamburger{display:inline-flex}

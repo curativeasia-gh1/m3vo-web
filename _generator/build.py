@@ -189,6 +189,8 @@ INDUSTRIES = [
  ("buildings","Multi-location Businesses","Central visibility, local control.","/industries/multi-location/"),
 ]
 
+STORE_URL = "https://store.m3vo.com/"  # M3VO Shop: ASUS NUC mini PCs and ASUS monitors (separate Next.js site)
+
 def brand():
     return '<span class="brand" aria-label="M3VO"><span>m</span><span class="g">3</span><span>vo</span></span>'
 
@@ -209,6 +211,7 @@ def header():
     <div class="nav-item"><a class="nav-link" href="/how-we-work/">How We Work</a></div>
     <div class="nav-item"><a class="nav-link" href="/insights/">Resources</a></div>
     <div class="nav-item"><a class="nav-link" href="/about/">About</a></div>
+    <div class="nav-item"><a class="nav-link" href="{STORE_URL}">Shop</a></div>
   </div>
   <div class="nav-right">
     <a class="btn btn-ghost btn-sm" href="/contact/">Contact</a>
@@ -222,6 +225,7 @@ def header():
   <a class="m-link" href="/how-we-work/">How We Work</a>
   <a class="m-link" href="/insights/">Resources</a>
   <a class="m-link" href="/about/">About</a>
+  <a class="m-link" href="{STORE_URL}">Shop: mini PCs &amp; monitors</a>
   <a class="m-link" href="/contact/">Contact</a>
   <div style="margin-top:18px"><a class="btn btn-primary" href="/contact/" style="width:100%">Tell Us What Slows You Down</a></div>
 </div>'''
@@ -239,7 +243,7 @@ def footer():
     <div class="fcol"><h4>Industries</h4>{ind}</div>
     <div class="fcol"><h4>Company</h4>
       <a href="/how-we-work/">How We Work</a><a href="/about/">About M3VO</a>
-      <a href="/insights/">Resources</a><a href="/contact/">Contact</a></div>
+      <a href="/insights/">Resources</a><a href="{STORE_URL}">M3VO Shop</a><a href="/contact/">Contact</a></div>
   </div>
   <div class="foot-bottom">
     <span>&copy; <span id="yr">2026</span> M3VO. Software that makes business flow better.</span>

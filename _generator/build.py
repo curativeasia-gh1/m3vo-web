@@ -165,6 +165,7 @@ I = {
  "target":'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/>',
  "layers":'<path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/>',
  "mail":'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+ "monitor":'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
 }
 def ic(name, cls=""):
     c = f' class="{cls}"' if cls else ""
@@ -187,6 +188,7 @@ INDUSTRIES = [
  ("cart","Retail & E-commerce","Conversations connected to commerce.","/industries/ecommerce/"),
  ("brief","Professional Services","Enquiries and documents, structured.","/industries/professional-services/"),
  ("buildings","Multi-location Businesses","Central visibility, local control.","/industries/multi-location/"),
+ ("monitor","Medical Displays","Clinical, diagnostic and surgical monitors.","/medical-displays/"),
 ]
 
 STORE_URL = "https://store.m3vo.com/"  # M3VO Shop: ASUS NUC mini PCs and ASUS monitors (separate Next.js site)

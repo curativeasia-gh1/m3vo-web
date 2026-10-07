@@ -39,5 +39,6 @@ At least one delivery method is required. Without either, the endpoint returns a
 ## After deployment
 
 1. Verify the live homepage, WhatsApp page, updated guide, robots.txt and sitemap.xml.
-2. Submit the sitemap and request recrawling of changed URLs in Google Search Console and Bing Webmaster Tools. Indexing and AI citations are not guaranteed.
-3. Add verified team credentials and genuine customer case studies when the supporting material is available.
+2. Run `python3 scripts/indexnow.py --submit` (or pass changed URLs) to notify Bing and other IndexNow engines. It reads the key from the root `<key>.txt` file, which `_generator/build.py` writes; the file must be live before submitting. Run it without `--submit` first for a dry run.
+3. Submit the sitemap and request recrawling of changed URLs in Google Search Console and Bing Webmaster Tools. Indexing and AI citations are not guaranteed.
+4. Add verified team credentials and genuine customer case studies when the supporting material is available.

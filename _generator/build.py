@@ -788,7 +788,8 @@ LEAVES["/healthcare-software/"] = dict(
   build_list=["AI clinic reception","WhatsApp enquiries","Appointment management","Patient reminders","Treatment enquiries",
     "Customer relationship management","Packages","Payments","Inventory","Follow-up workflows","Recall campaigns","Operational dashboards"],
   related=[("Dental & Aesthetic Clinics","/dental-clinic-software/"),("WhatsApp & Communication","/whatsapp-business/"),
-    ("AI & Business Automation","/ai-automation/"),("CRM & Workflow Automation","/crm-workflow-automation/")],
+    ("AI & Business Automation","/ai-automation/"),("CRM & Workflow Automation","/crm-workflow-automation/"),
+    ("Medical Displays","/medical-displays/")],
   cta_title="Design your clinic workflow with M3VO.",
   cta_text="Tell us where your front desk and follow-ups get stuck. We'll design around it.")
 
@@ -1042,6 +1043,9 @@ Website: https://m3vo.com/
 - Professional services — https://m3vo.com/industries/professional-services/
 - Multi-location businesses — https://m3vo.com/industries/multi-location/
 
+## Medical displays
+- Clinical, diagnostic and surgical medical monitors (27-inch and above; ASUS Healthcare, Reshin; ACULA enquiries) — https://m3vo.com/medical-displays/
+
 ## Flagship product: M3VO WhatsApp shared inbox
 A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Features and implementation scope are agreed in a project quote.
 
@@ -1221,6 +1225,213 @@ ARTICLES = [
   cta_text="Tell us how your team handles customer messages today. We'll show you what the Platform changes — and what it costs."),
 ]
 
+# ================================================================ MEDICAL DISPLAYS (category page)
+MD_PATH = "/medical-displays/"
+MD_REVIEWED, MD_REVIEWED_ISO = "7 October 2026", "2026-10-07"
+MD_TITLE = "Medical Displays Singapore | Clinical & Diagnostic Monitors | M3VO"
+MD_DESC = ("Explore 27-inch and larger clinical, diagnostic and 4K surgical monitors from ASUS Healthcare and Reshin, "
+           "plus ACULA medical-display sourcing at M3VO.")
+
+MD_IMAGES = [  # (file, alt, caption)
+ ("asus-mh2741a-front.webp", "ASUS MH2741A 27 inch clinical medical display for PACS review", "Front view"),
+ ("asus-mh2741a-angle.webp", "ASUS MH2741A 27 inch clinical display shown from a three-quarter angle", "Three-quarter view"),
+ ("asus-mh2741a-portrait.webp", "ASUS MH2741A clinical display shown in portrait orientation with a chest X-ray and CT slice", "Portrait orientation"),
+ ("asus-mh2741a-stand-low.webp", "ASUS MH2741A clinical display on its stand, front view", "On stand, lower position"),
+ ("asus-mh2741a-stand-high.webp", "ASUS MH2741A clinical display on its stand, front view at a raised height", "On stand, raised position"),
+]
+
+MD_COMPARE = [
+ ("Main role","Clinical review, consultation and image sharing","Primary image interpretation <strong>where the model is authorised and suitable</strong>"),
+ ("Common users","Specialists, dentists, ophthalmologists and clinical teams","Radiologists and diagnostic imaging professionals"),
+ ("Typical workflows","PACS review, CBCT review, consultation, patient education","CT, MRI, digital radiography and other diagnostic reporting workflows"),
+ ("Main purchasing criteria","Screen space, image clarity, usability, connectivity","Calibrated luminance, grayscale response, uniformity, QC and intended-use approval"),
+ ("DICOM Part 14","Available on selected models","Commonly required as part of a broader diagnostic display QA programme"),
+ ("27-inch-and-larger options","27-inch QHD and 31.5-inch 4K","27-inch review, 30-inch PACS, 31–31.5-inch 8MP/12MP options"),
+]
+MD_CLINICAL = [
+ ("ASUS Healthcare","MH2741A","27 in","2560 × 1440 (3.6MP)","QHD IPS clinical review and PACS viewing"),
+ ("ASUS Healthcare","MH3281A","31.5 in","3840 × 2160 (8MP / 4K)","Large-format OLED clinical image viewing"),
+ ("Reshin","MD46C","27 in","2560 × 1440 (~3.7MP; marketed as 4MP)","PACS review, CT/MRI image checking and clinical workstations"),
+]
+MD_DIAGNOSTIC = [
+ ("Reshin","MD45C","30 in","2560 × 1600 (~4.1MP)","Multi-window PACS review and reporting"),
+ ("Reshin","MD85CA","31.5 in","3840 × 2160 (8MP / 4K)","Colour multimodality imaging and PACS comparison"),
+ ("Reshin","MD120C","31 in","4200 × 2800 (~12MP)","Advanced diagnostic imaging and mammography-related workflows"),
+]
+MD_SURGICAL = [
+ ("Reshin","MS270P","27 in","1920 × 1080 (FHD)","Endoscopy carts and standard surgical video"),
+ ("Reshin","MS275PA","27 in","3840 × 2160 (4K)","Compact 4K laparoscopy and endoscopy systems"),
+ ("Reshin","MS321PB","31.5 in","3840 × 2160 (4K)","4K operating-room system integration"),
+ ("Reshin","MS322PB","32 in","3840 × 2160 (4K)","Minimally invasive surgery and multi-source OR display"),
+ ("Reshin","MS430PC","42.5 in","3840 × 2160 (4K)","Larger OR viewing, hybrid OR and surgical teaching"),
+ ("Reshin","MS550P","55 in","3840 × 2160 (4K)","Shared-view operating-room applications"),
+]
+MD_STEPS = [
+ ("Define the intended task","clinical review, primary diagnostic reporting or surgical video."),
+ ("Choose the display size","27-inch for compact desks and carts; 31–32-inch for larger workspaces; 42–55-inch for shared OR viewing."),
+ ("Match resolution to the workflow","QHD, 4K/8MP or higher-resolution specialist models as required."),
+ ("Verify performance","DICOM calibration, brightness, uniformity, colour and applicable quality-control tools."),
+ ("Check connectivity and integration","PC graphics output, PACS application, endoscopy processor, mounting and cable routing."),
+ ("Verify the exact device's documentation","intended use, model-specific certifications and regulatory requirements in the destination country."),
+ ("Request a project quotation","supply quantity, lead time, warranty, service coverage and installation scope."),
+]
+MD_FAQS = [
+ ("What is the difference between a clinical monitor and a diagnostic monitor?",
+  "A clinical monitor is generally used to review medical images and support consultation. A diagnostic monitor is selected for authorised primary interpretation and must meet the specific imaging workflow's performance, calibration, quality-control and regulatory requirements. The label alone does not determine permitted use."),
+ ("Is a 27-inch medical monitor suitable for PACS?",
+  "Yes, for appropriate PACS viewing workflows. A 27-inch model such as the ASUS MH2741A or Reshin MD46C may support clinical image review. For primary diagnostic reporting, confirm that the exact model is authorised and technically suitable for the imaging task."),
+ ("Is a 4K monitor automatically suitable for radiology diagnosis?",
+  "No. 4K resolution provides more pixels, but primary diagnostic suitability also depends on luminance, grayscale accuracy, uniformity, calibration, quality assurance, intended use and regulatory requirements."),
+ ("Which monitors are available in 31-inch or 32-inch sizes?",
+  "Examples include the ASUS MH3281A 31.5-inch 4K OLED clinical display, Reshin MD85CA 31.5-inch 8MP radiology display, Reshin MD120C 31-inch approximately 12MP diagnostic display and Reshin MS322PB 32-inch 4K surgical monitor. Availability depends on market and supplier confirmation."),
+ ("Can a clinical display be used for mammography interpretation?",
+  "Do not assume so. Mammography may impose modality-specific display and quality-control requirements. The monitor must be checked for the precise intended reading task and applicable regulatory conditions before use."),
+ ("What is the difference between a surgical monitor and a diagnostic monitor?",
+  "A surgical monitor is designed around real-time video viewing from equipment such as endoscopy and laparoscopic systems. A diagnostic monitor is selected for controlled interpretation of medical images. Their performance priorities and regulatory intended uses differ."),
+ ("Can M3VO supply a medical display with a compact PC?",
+  "M3VO can evaluate display-plus-computing configurations using medical monitors and compatible compact PCs, including ASUS NUC platforms. Final specifications, availability, installation scope and support terms are confirmed during quotation."),
+]
+MD_REFS = [
+ ("ASUS Healthcare — Medical monitors","https://healthcare.asus.com/monitors/medical-monitors/filter?Series=Medical-Monitors"),
+ ("ASUS Healthcare — MH Series clinical display classifications","https://healthcare.asus.com/resources/news/mh-series-clinical-displays-fda-tfda-mdr/"),
+ ("Reshin — Radiology monitor range","https://reshinmonitors.com/medical-grade-monitors/radiology-monitor/"),
+ ("Reshin — Surgical monitor range","https://reshinmonitors.com/medical-grade-monitors/surgical-monitor/"),
+ ("ACULA Technology — Medical displays and OEM/ODM","https://acula.com/en"),
+ ("ACULA / USEI — 27-inch clinical monitor announcement (2022)","https://www.itnonline.com/content/usei-teams-acula-technology-corp-diagnostic-and-clinical-medical-monitors-be-introduced"),
+]
+
+def md_table(caption, head, rows, strong_col=None):
+    th = "".join(f'<th scope="col" {_TH}>{h}</th>' for h in head)
+    tr = ""
+    for r in rows:
+        tds = "".join(
+            (f'<th scope="row" {_TD.replace("color:var(--body)","color:var(--ink);font-weight:600")}>{c}</th>' if i == strong_col
+             else f'<td {_TD}>{c}</td>') for i, c in enumerate(r))
+        tr += f"<tr>{tds}</tr>"
+    return (f'<div class="tbl-wrap" role="region" aria-label="{caption}" tabindex="0">'
+            f'<table {_TABLE}><caption class="sr-only">{caption}</caption><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>')
+
+def md_model_table(caption, rows):
+    return md_table(caption, ["Manufacturer","Model","Screen","Native resolution","Typical use"],
+                    [(m, f"<strong>{mod}</strong>", s, res, use) for m, mod, s, res, use in rows])
+
+def md_sec(sid, eyebrow, title, inner, wash=False):
+    cls = "section section--wash" if wash else "section"
+    return (f'<section class="{cls}" id="{sid}"><div class="wrap"><span class="eyebrow">{eyebrow}</span>'
+            f'<h2 class="measure">{title}</h2>{inner}</div></section>')
+
+def medical_displays():
+    bc = [("Home","/"),("Medical Displays",None)]
+    def img(i, eager=False):
+        attrs = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
+        return f'<img src="/assets/medical/{MD_IMAGES[i][0]}" alt="{MD_IMAGES[i][1]}" width="800" height="800" {attrs}>'
+    jump = "".join(f'<a class="chip" href="#{a}">{t}</a>' for a, t in
+                   [("clinical-displays","Clinical displays"),("diagnostic-displays","Diagnostic displays"),
+                    ("surgical-displays","Surgical displays"),("medical-workstations","Medical workstations")])
+    hero = f'''<section class="section section--tight" style="padding-top:26px">{crumbs(bc)}
+      <div class="wrap" style="margin-top:8px"><div class="frow" style="border:0;padding:0">
+        <div><span class="fr-ic">{ic("health")}</span>
+          <h1 style="max-width:18ch;margin-top:18px">Medical displays for hospitals, clinics &amp; imaging workstations.</h1>
+          <p class="lead measure" style="margin-top:18px;color:var(--body)">Clinical, diagnostic and surgical monitors, with a focus on 27-inch displays and above. M3VO helps healthcare organisations and medical technology integrators identify professional display solutions for medical image review, radiology workstations and operating-room visualisation.</p>
+          <div class="btn-row" style="margin-top:24px"><a class="btn btn-primary" href="/contact/">Enquire about medical displays</a>
+            <a class="btn btn-ghost" href="#clinical-vs-diagnostic">Clinical vs diagnostic</a></div>
+          <div class="chips" style="margin-top:22px" aria-label="Browse this page">{jump}</div></div>
+        <figure class="fr-media md-hero">{img(0, True)}<figcaption>ASUS MH2741A 27-inch clinical display</figcaption></figure>
+      </div></div></section>'''
+
+    glance = (f'<section class="section section--tight"><div class="wrap">'
+      + answer("At a glance: clinical, diagnostic and surgical displays", [
+        "A <strong>clinical display</strong> is generally used for viewing and discussing medical images; a <strong>diagnostic display</strong> is selected for an authorised primary-interpretation workflow with stricter performance, calibration and quality-control requirements. A <strong>surgical display</strong> is optimised for real-time video from surgical or endoscopy systems.",
+        "These categories can overlap in marketing descriptions, so always verify the individual model's intended use and local regulatory status."])
+      + '</div></section>')
+
+    compare = md_sec("clinical-vs-diagnostic","Choosing a category","Clinical displays vs diagnostic displays: what is the difference?",
+        md_table("Clinical displays compared with diagnostic displays", ["Buying consideration","Clinical display","Diagnostic display"], MD_COMPARE, strong_col=0)
+        + '<p class="lead measure" style="margin-top:22px;color:var(--body)"><strong>The key distinction is intended use, not screen size or resolution alone.</strong> A 4K display with DICOM Part 14 support is <strong>not automatically cleared for primary diagnosis</strong>, and mammography may require additional application-specific requirements.</p>')
+
+    gallery = ('<div class="md-gal">' + "".join(
+        f'<figure>{img(i)}<figcaption>{MD_IMAGES[i][2]}</figcaption></figure>' for i in range(1, len(MD_IMAGES))) + '</div>')
+    clinical = md_sec("clinical-displays","Clinical displays","Clinical displays: 27-inch and above",
+        '<p class="lead measure" style="margin:14px 0 22px;color:var(--body)">Clinical monitors help healthcare professionals view images and records side by side. Larger displays can be useful for ophthalmology imaging, dental CBCT review, specialist consultations, PACS review, ultrasound and multidisciplinary case discussions.</p>'
+        + md_model_table("Selected clinical display models", MD_CLINICAL)
+        + '<p style="margin-top:20px;color:var(--body);max-width:72ch"><strong>ASUS MH series:</strong> the MH2741A and MH3281A include DICOM Part 14 GSDF features and display calibration functions. ASUS categorises these products as <strong>clinical displays</strong>; do not assume they are cleared for every primary-diagnostic use.</p>'
+        '<p style="margin-top:12px;color:var(--body);max-width:72ch"><strong>Reshin MD46C:</strong> Reshin markets this as a 27-inch 4MP medical display with ambient-light compensation and luminance-stabilisation features, primarily for image checking and PACS review.</p>'
+        '<p style="margin-top:12px;color:var(--muted);max-width:72ch">Typical applications: ophthalmology diagnostics review, dental imaging and treatment planning, consultation rooms, hospital PACS access and clinical workstation upgrades.</p>'
+        + f'<h3 style="margin:34px 0 14px">ASUS MH2741A product views</h3>{gallery}')
+
+    diagnostic = md_sec("diagnostic-displays","Diagnostic displays","Diagnostic displays: 27-inch and above",
+        '<p class="lead measure" style="margin:14px 0 22px;color:var(--body)">Diagnostic-display projects call for careful evaluation of grayscale performance, luminance stability, uniformity, quality assurance, ambient lighting and clinical intended use. The appropriate monitor depends on the modality, reporting task and applicable standards.</p>'
+        + md_model_table("Selected diagnostic and advanced radiology display models", MD_DIAGNOSTIC)
+        + '<p style="margin-top:20px;color:var(--body);max-width:72ch">Reshin positions these products for radiology and related imaging workflows. <strong>Before any primary diagnostic deployment</strong>, confirm the specific model\'s approved intended use, regulatory documentation, calibrated performance and the facility\'s quality-control programme. For mammography, confirm the complete breast-imaging requirements rather than relying on megapixel count alone.</p>'
+        '<p style="margin-top:12px;color:var(--muted);max-width:72ch">Typical applications: radiology reading rooms, hospital PACS workstations, CT/MRI comparison, diagnostic imaging centres and specialist imaging departments.</p>', wash=True)
+
+    surgical = md_sec("surgical-displays","Surgical displays","Surgical displays: 27 to 55 inches",
+        '<p class="lead measure" style="margin:14px 0 22px;color:var(--body)">Surgical displays are selected primarily around real-time video, camera-system compatibility, colour rendering, latency, connectivity, viewing distance, cleaning requirements and mounting. They are not interchangeable with primary-diagnostic reading monitors simply because both are labelled &ldquo;medical-grade&rdquo;.</p>'
+        + md_model_table("Selected surgical display models", MD_SURGICAL)
+        + '<p style="margin-top:20px;color:var(--body);max-width:72ch"><strong>Before specifying a surgical monitor:</strong> check the video processor\'s resolution, frame rate, output connector (such as HDMI, DisplayPort or SDI), mounting requirements and infection-control requirements. Connections and picture-in-picture capabilities vary by model.</p>')
+
+    def mcard(t, p, feat):
+        return f'<div class="card-soft"><div class="cs-t">{t}</div><p style="color:var(--body)">{p}</p><p style="margin-top:12px;color:var(--muted);font-size:.92rem"><strong>Featured:</strong> {feat}</p></div>'
+    makers = md_sec("manufacturers","Manufacturers","Explore medical display manufacturers",
+        '<div class="md-cards">'
+        + mcard("ASUS Healthcare — clinical viewing and integrated computing",
+                "27-inch and 31.5-inch MH-series clinical displays for organisations evaluating DICOM-enabled clinical viewing and modern PACS workstations. They can be considered alongside compatible compact computing platforms for an integrated workstation project.",
+                "MH2741A (27-inch), MH3281A (31.5-inch 4K OLED).")
+        + mcard("Reshin — diagnostic, multimodality and surgical options",
+                "A broad portfolio covering clinical PACS review, high-resolution radiology displays and real-time operating-room video: 27-inch review monitors, 30–31.5-inch high-resolution radiology displays and 27–55-inch surgical monitors.",
+                "MD46C, MD45C, MD85CA, MD120C, MS275PA, MS322PB, MS430PC.")
+        + mcard("ACULA Technology — medical display and OEM/ODM enquiries",
+                "ACULA develops medical-display technologies and OEM/ODM video solutions. Its 27-inch clinical-monitor activity has been publicly reported, but a current, fully specified ACULA medical model of 27 inches or larger has not been independently confirmed for this catalogue. M3VO can assess current ACULA medical-display options subject to manufacturer confirmation.",
+                "enquiry-based; ACULA&rsquo;s LDN-127M and LDN-132M are surveillance/IP monitors, not verified medical-display models, and are intentionally excluded.")
+        + '</div>', wash=True)
+
+    ws = md_sec("medical-workstations","Medical workstations","Integrated medical workstations: displays and computing",
+        '<div class="frow" style="border:0;padding:0;margin-top:8px"><div><p class="lead" style="color:var(--body)">A complete medical workstation for an imaging-intensive practice may combine the following elements.</p>'
+        '<p style="margin-top:14px;color:var(--muted)">Common use cases: dental CBCT review, ophthalmic image review, specialist consultations, radiology workstations and medical-equipment integration.</p>'
+        '<p style="margin-top:14px;color:var(--muted);font-size:.94rem"><em>Computer specifications and compatibility should be validated with the clinical software supplier and the display manufacturer before purchase.</em></p></div>'
+        + '<div class="fr-media">' + tick_list([
+            "A 27-inch or 31.5-inch clinical display or an appropriately specified diagnostic monitor",
+            "A compatible ASUS NUC or other professional compact PC",
+            "Sufficient RAM, storage and graphics capabilities for the intended PACS, CBCT or imaging software",
+            "Approved connectivity, ergonomic mounting and any required calibration tools",
+            "Installation, integration and ongoing support arrangements agreed for the project"]) + '</div></div>')
+
+    steps = md_sec("how-to-choose","Buying guide","How to choose the right medical monitor",
+        '<ol class="md-steps">' + "".join(f"<li><strong>{a}:</strong> {b}</li>" for a, b in MD_STEPS) + '</ol>', wash=True)
+
+    faq_html = "".join(f'<details class="qa"><summary>{q}<span class="qi">{ic("plus")}</span></summary><div class="qbody">{a}</div></details>' for q, a in MD_FAQS)
+    faq = (f'<section class="section" id="faq"><div class="wrap"><span class="eyebrow">FAQ</span>'
+           f'<h2 class="measure">Frequently asked questions about medical displays</h2><div class="faq" style="margin-left:0">{faq_html}</div></div></section>')
+
+    band = '''<section class="section" id="quote"><div class="wrap"><div class="ctaband">
+      <h2>Request a medical display quotation.</h2>
+      <p>Tell M3VO what you need: clinical review, diagnostic imaging or surgical visualisation, preferred size (27-inch, 31.5/32-inch, 43-inch or 55-inch), model if known, intended country, required interfaces and approximate quantity.</p>
+      <div class="btn-row"><a class="btn btn-green" href="/contact/">Enquire about medical displays</a>
+        <a class="btn btn-ghost" href="/contact/">Ask about integrated workstations</a></div></div></div></section>'''
+
+    refs = ('<section class="section section--tight"><div class="wrap"><h3 style="margin-bottom:8px">Manufacturer references and model specifications</h3>'
+            f'<p style="color:var(--muted);max-width:72ch">Model descriptions are based on manufacturer-published information available as of {MD_REVIEWED}.</p>'
+            '<ul class="md-refs">' + "".join(f'<li><a class="textlink" href="{u}" target="_blank" rel="noopener">{t}</a></li>' for t, u in MD_REFS) + '</ul>'
+            '<p style="margin-top:18px;color:var(--muted);max-width:72ch;font-size:.94rem"><strong>Regulatory note:</strong> products, certifications, availability and permissible clinical uses vary by model and jurisdiction. Nothing on this page is a claim of exclusive or authorised distribution status, or approval of a particular display for primary diagnosis. Confirm all relevant manufacturer documents before deployment.</p>'
+            '<p style="margin-top:10px;color:var(--muted);font-size:.9rem">Product images: ASUS MH2741A. &copy; ASUS; shown to illustrate the model.</p></div></section>')
+
+    rel = related([("Healthcare & Clinics","/healthcare-software/"),("Dental & Aesthetic Clinics","/dental-clinic-software/"),
+                   ("System Integration & APIs","/system-integration/"),("M3VO Shop: mini PCs & monitors",STORE_URL)])
+
+    body = hero+glance+compare+clinical+diagnostic+surgical+makers+ws+steps+faq+band+rel+refs
+    ld = [
+      breadcrumb_ld(bc),
+      {"@context":"https://schema.org","@type":"WebPage","@id":BASE+MD_PATH+"#webpage","url":BASE+MD_PATH,"name":MD_TITLE,
+       "description":MD_DESC,"inLanguage":"en-SG","dateModified":MD_REVIEWED_ISO,
+       "isPartOf":{"@type":"WebSite","name":"M3VO","url":BASE+"/"},
+       "publisher":{"@type":"Organization","name":"M3VO","url":BASE+"/"},
+       "primaryImageOfPage":{"@type":"ImageObject","url":BASE+"/assets/medical/"+MD_IMAGES[0][0]},
+       "mainEntity":{"@id":BASE+MD_PATH+"#faq"}},
+      {"@context":"https://schema.org","@type":"FAQPage","@id":BASE+MD_PATH+"#faq","mainEntity":[
+        {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q, a in MD_FAQS]},
+    ]
+    return page(MD_TITLE, MD_DESC, MD_PATH, body, ld)
+
 def build():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
@@ -1241,11 +1452,17 @@ def build():
     for a in ARTICLES:
         write(a["path"].strip("/")+"/index.html", article(a))
     write("contact/index.html", contact())
+    write(MD_PATH.strip("/")+"/index.html", medical_displays())
+    mdir = os.path.join(ROOT,"medical")
+    os.makedirs(os.path.join(DIST,"assets","medical"), exist_ok=True)
+    for f in sorted(os.listdir(mdir)):
+        shutil.copy(os.path.join(mdir,f), os.path.join(DIST,"assets","medical",f))
     write("404.html", notfound())
     # sitemap + robots
     urls=["/","/ai-automation/","/custom-software-development/","/whatsapp-business/","/crm-workflow-automation/",
       "/system-integration/","/cloud-infrastructure/","/healthcare-software/","/dental-clinic-software/",
       "/industries/distribution/","/industries/ecommerce/","/industries/professional-services/","/industries/multi-location/",
+      MD_PATH,
       "/how-we-work/","/about/","/insights/","/contact/"]
     urls += [a["path"] for a in ARTICLES]
     sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

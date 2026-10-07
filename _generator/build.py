@@ -1437,6 +1437,9 @@ def medical_displays():
 # Bing Webmaster Tools site-ownership file, served at /BingSiteAuth.xml (byte-for-byte as issued by Bing)
 BING_SITE_AUTH = ('<?xml version="1.0"?>\n<users>\n\t<user>6EC40B30F9FB8960D0F823A6049AED55</user>\n</users>')
 
+# IndexNow key (public by design: the engines fetch it from /<key>.txt to confirm site ownership)
+INDEXNOW_KEY = "40c8e4af529967e6161ac58a14805f07"
+
 def build():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
@@ -1476,6 +1479,7 @@ def build():
     write("sitemap.xml", sm)
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     write("BingSiteAuth.xml", BING_SITE_AUTH)  # Bing Webmaster Tools ownership verification
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)  # IndexNow key file: must contain exactly the key
     write("llms.txt", LLMS)
     # Cloudflare Pages Function for the contact form
     write("functions/api/contact.js", CONTACT_FN)

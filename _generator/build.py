@@ -313,7 +313,7 @@ def breadcrumb_ld(items):
         el.append(d)
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":el}
 
-def page(title, desc, path, body, jsonld=None, inline=False, noindex=False):
+def page(title, desc, path, body, jsonld=None, inline=False, noindex=False, og_type="website", extra_meta=""):
     canonical = BASE + path
     robots_meta = '\n<meta name="robots" content="noindex, follow">' if noindex else ""
     css = f"<style>{CSS}</style>" if inline else '<link rel="stylesheet" href="/assets/styles.css">'
@@ -347,7 +347,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="{canonical}">{robots_meta}
 <meta name="theme-color" content="#183591">
 <link rel="icon" href="{favicon}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="M3VO">
+<meta property="og:type" content="{og_type}"><meta property="og:site_name" content="M3VO">{extra_meta}
 <meta property="og:title" content="{html.escape(title, quote=True)}">
 <meta property="og:description" content="{html.escape(desc, quote=True)}">
 <meta property="og:url" content="{canonical}">
@@ -614,7 +614,7 @@ LEAVES = {}
 LEAVES["/ai-automation/"] = dict(
   path="/ai-automation/", icon="ai", service_type="Agentic AI and business automation",
   title="AI Agents & Business Automation Singapore | M3VO",
-  desc="M3VO builds AI agents and agentic automation for real business processes — AI receptionists, customer service, document AI, knowledge assistants and workflow automation.",
+  desc="M3VO builds AI agents and automation for real business processes — AI receptionists, customer service, document AI, knowledge assistants and workflows.",
   crumbs=[("Home","/"),("Solutions","/#solutions"),("AI & Business Automation",None)],
   h1="AI agents and automation that remove work — not another tool to manage.",
   lead="M3VO builds AI-powered automation designed around real business processes. Instead of dropping in a generic chatbot and calling it transformation, we find the specific points where AI saves employees time or improves customer response.",
@@ -713,7 +713,7 @@ LEAVES["/whatsapp-business/"] = dict(
 LEAVES["/crm-workflow-automation/"] = dict(
   path="/crm-workflow-automation/", icon="crm", service_type="CRM and workflow automation",
   title="CRM & Workflow Automation for SMEs | M3VO",
-  desc="M3VO takes a workflow-first approach to CRM — customer information triggers actions across sales, operations and management, not just a database staff must update.",
+  desc="A workflow-first approach to CRM — customer information triggers actions across sales, operations and management, not just a database staff must update.",
   crumbs=[("Home","/"),("Solutions","/#solutions"),("CRM & Workflow Automation",None)],
   h1="Your CRM should move work forward — not just store names.",
   lead="Many CRMs become databases employees are required to update. M3VO takes a workflow-first approach: customer information should trigger actions that connect customers, staff, tasks and business processes.",
@@ -735,7 +735,7 @@ LEAVES["/crm-workflow-automation/"] = dict(
 LEAVES["/system-integration/"] = dict(
   path="/system-integration/", icon="plug", service_type="API and system integration",
   title="API & Business System Integration Singapore | M3VO",
-  desc="M3VO connects the software you already use — CRM, ERP, payments, WhatsApp, e-commerce and accounting — with APIs and automated workflows so information moves on its own.",
+  desc="M3VO connects the software you already use — CRM, ERP, payments, WhatsApp, e-commerce and accounting — with APIs and automated workflows.",
   crumbs=[("Home","/"),("Solutions","/#solutions"),("System Integration & APIs",None)],
   h1="Make your software talk to each other.",
   lead="Businesses often already have good software. The problem is that none of it communicates. M3VO develops API integrations and automated workflows so information moves between platforms automatically.",
@@ -798,7 +798,7 @@ LEAVES["/healthcare-software/"] = dict(
 LEAVES["/dental-clinic-software/"] = dict(
   path="/dental-clinic-software/", icon="tooth", service_type="Dental and aesthetic clinic software",
   title="Dental Clinic Software & WhatsApp Automation | M3VO",
-  desc="M3VO connects the full dental and aesthetic clinic workflow — enquiry, consultation, appointment, treatment, payment, follow-up and recall — with AI reception and WhatsApp automation.",
+  desc="M3VO connects the dental and aesthetic clinic workflow — enquiry, appointment, treatment, payment, follow-up and recall — with AI reception and WhatsApp.",
   crumbs=[("Home","/"),("Industries","/insights/"),("Dental & Aesthetic Clinics",None)],
   h1="Manage the complete enquiry-to-recall workflow.",
   lead="M3VO helps dental and aesthetic clinics connect every step from first enquiry to recall — with AI receptionists, WhatsApp automation, CRM workflows, appointment systems and clinic-specific software.",
@@ -818,7 +818,7 @@ LEAVES["/dental-clinic-software/"] = dict(
 LEAVES["/industries/distribution/"] = dict(
   path="/industries/distribution/", icon="box", service_type="B2B distribution software",
   title="B2B Distribution Software | M3VO",
-  desc="M3VO connects the B2B distribution workflow — lead, quotation, order, delivery, invoice, payment and follow-up — replacing scattered email, WhatsApp and spreadsheets.",
+  desc="M3VO connects B2B distribution — lead, quotation, order, delivery, invoice, payment and follow-up — replacing scattered email, WhatsApp and spreadsheets.",
   crumbs=[("Home","/"),("Industries","/insights/"),("Distribution & B2B",None)],
   h1="Lead to payment across one connected workflow.",
   lead="B2B distributors often rely on email, WhatsApp, spreadsheets and individual employee knowledge. M3VO connects the whole workflow so orders, quotes and follow-ups stop falling through the cracks.",
@@ -858,7 +858,7 @@ LEAVES["/industries/ecommerce/"] = dict(
 LEAVES["/industries/professional-services/"] = dict(
   path="/industries/professional-services/", icon="brief", service_type="Professional services automation",
   title="Software for Professional Services | M3VO",
-  desc="M3VO turns enquiries, documents and client requests into structured workflows — lead management, document collection, onboarding, quotations, scheduling and reminders.",
+  desc="M3VO turns enquiries, documents and client requests into structured workflows — leads, document collection, onboarding, quotations, scheduling and reminders.",
   crumbs=[("Home","/"),("Industries","/insights/"),("Professional Services",None)],
   h1="Turn enquiries and documents into structured workflows.",
   lead="Professional services firms run on enquiries, documents and client requests. M3VO structures those into clear workflows so onboarding, follow-ups and scheduling run consistently.",
@@ -956,7 +956,7 @@ def insights():
         lis="".join(f'<li>{q}</li>' for q in qs)
         cards+=f'''<div class="sol"><span class="sic">{ic(i)}</span><h3>{t}</h3>
           <ul class="reduce-list" style="columns:1;margin-top:6px">{lis}</ul></div>'''
-    pub_cards = "".join(f'<a class="sol" style="text-decoration:none;display:block" href="{a["path"]}"><span class="sic">{ic("doc")}</span><h3>{a["h1"]}</h3><p style="color:var(--body);margin-top:6px">{a["dek"]}</p><span class="textlink" style="margin-top:10px;display:inline-block">Read the guide {ic("arrow-right")}</span></a>' for a in ARTICLES)
+    pub_cards = "".join(f'<a class="sol" style="text-decoration:none;display:block" href="{a["path"]}"><span class="sic">{ic("doc")}</span><h3>{a["h1"]}</h3><p style="color:var(--body);margin-top:6px">{a["dek"]}</p><p style="color:var(--muted);font-size:.85rem;margin-top:8px"><time datetime="{a.get("updated_iso",a["published_iso"])}">{("Updated "+a["updated"]) if a.get("updated") else ("Published "+a["published"])}</time></p><span class="textlink" style="margin-top:10px;display:inline-block">Read the guide {ic("arrow-right")}</span></a>' for a in ARTICLES)
     pubs = f'<section class="section" style="padding-top:0"><div class="wrap"><span class="eyebrow">Latest guides</span><div class="sol-grid" style="margin-top:14px">{pub_cards}</div></div></section>'
     body=f'''<section class="section section--tight" style="padding-top:26px">{crumbs([("Home","/"),("Resources",None)])}
       <div class="wrap" style="margin-top:8px"><span class="eyebrow">Resources</span>
@@ -1109,7 +1109,8 @@ def article(a):
     if a.get("faqs"):
         ld.append({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
           {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":ans}} for q,ans in a["faqs"]]})
-    return page(a["title"], a["desc"], a["path"], body, ld)
+    times = f'\n<meta property="article:published_time" content="{a["published_iso"]}"><meta property="article:modified_time" content="{a.get("updated_iso",a["published_iso"])}">'
+    return page(a["title"], a["desc"], a["path"], body, ld, og_type="article", extra_meta=times)
 
 # ---------------------------------------------------------------- articles (AEO)
 _TABLE = 'style="width:100%;border-collapse:collapse;margin-top:4px"'
@@ -1180,7 +1181,7 @@ ARTICLES = [
  dict(
   path="/insights/whatsapp-business-app-vs-platform/", crumb="WhatsApp App vs Platform",
   title="WhatsApp Business App vs Platform (2026) | M3VO",
-  desc="WhatsApp Business App vs the WhatsApp Business Platform (API): the real differences in team access, automation, integration and pricing — and how to choose in 2026.",
+  desc="WhatsApp Business App vs the WhatsApp Business Platform (API): the real differences in team access, automation, integration and pricing in 2026.",
   eyebrow="WhatsApp Business", published="14 September 2026", published_iso="2026-09-14",
   h1="WhatsApp Business App vs WhatsApp Business Platform: what's the difference?",
   dek="They share a name and little else. One is a free app for a single owner; the other runs team conversations at scale through software.",
@@ -1230,7 +1231,7 @@ ARTICLES = [
 # ================================================================ MEDICAL DISPLAYS (category page)
 MD_PATH = "/medical-displays/"
 MD_REVIEWED, MD_REVIEWED_ISO = "7 October 2026", "2026-10-07"
-MD_TITLE = "Medical Displays Singapore | Clinical & Diagnostic Monitors | M3VO"
+MD_TITLE = "Medical Displays & Diagnostic Monitors Singapore | M3VO"
 MD_DESC = ("Explore 27-inch and larger clinical, diagnostic and 4K surgical monitors from ASUS Healthcare and Reshin, "
            "plus ACULA medical-display sourcing at M3VO.")
 
@@ -1440,6 +1441,20 @@ BING_SITE_AUTH = ('<?xml version="1.0"?>\n<users>\n\t<user>6EC40B30F9FB8960D0F82
 # IndexNow key (public by design: the engines fetch it from /<key>.txt to confirm site ownership)
 INDEXNOW_KEY = "40c8e4af529967e6161ac58a14805f07"
 
+def page_lastmod(rel):
+    """Date the page's built HTML last changed: today if it differs from the committed copy, else its last commit date."""
+    import subprocess, datetime
+    repo = os.path.dirname(ROOT)
+    try:
+        new = open(os.path.join(DIST, rel), encoding="utf-8").read()
+        old = subprocess.run(["git","show","HEAD:"+rel], cwd=repo, capture_output=True, text=True)
+        if old.returncode != 0 or old.stdout != new:
+            return datetime.date.today().isoformat()
+        out = subprocess.run(["git","log","-1","--format=%cs","--",rel], cwd=repo, capture_output=True, text=True).stdout.strip()
+        return out or None
+    except Exception:
+        return None
+
 def build():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
@@ -1474,7 +1489,10 @@ def build():
       "/how-we-work/","/about/","/insights/","/contact/"]
     urls += [a["path"] for a in ARTICLES]
     sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for u in urls: sm+=f'  <url><loc>{BASE}{u}</loc></url>\n'
+    art_dates = {a["path"]: a.get("updated_iso", a["published_iso"])[:10] for a in ARTICLES}
+    for u in urls:
+        lm = art_dates.get(u) or page_lastmod(u.strip("/")+"/index.html" if u != "/" else "index.html")
+        sm += f'  <url><loc>{BASE}{u}</loc>' + (f'<lastmod>{lm}</lastmod>' if lm else '') + '</url>\n'
     sm+='</urlset>\n'
     write("sitemap.xml", sm)
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")

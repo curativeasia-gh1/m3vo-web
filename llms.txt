@@ -23,6 +23,9 @@ Website: https://m3vo.com/
 - Professional services — https://m3vo.com/industries/professional-services/
 - Multi-location businesses — https://m3vo.com/industries/multi-location/
 
+## Medical displays
+- Clinical, diagnostic and surgical medical monitors (27-inch and above; ASUS Healthcare, Reshin; ACULA enquiries) — https://m3vo.com/medical-displays/
+
 ## Flagship product: M3VO WhatsApp shared inbox
 A shared WhatsApp inbox for a whole team — assignment, internal notes, status, no-code automation, an AI copilot and a lightweight CRM/pipeline view. Built on the official WhatsApp Business Platform via a licensed BSP (not an unofficial library). Features and implementation scope are agreed in a project quote.
 
